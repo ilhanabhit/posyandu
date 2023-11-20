@@ -1,26 +1,36 @@
 <?php
 include("koneksi.php");
+// require_once("id.php");
 
-// Query SQL untuk mengambil data dari tabel kader
-$sql = "SELECT id_kader, nama_kader, tgl_lahir, alamat, jabatan, tugas_pokok, kata_sandi, no_telp FROM tbl_kader";
+// $getter = new id();
+// $kader = $getter->getIdKader();
+session_start();
+$kader = $_SESSION['id_kader'];
 
-$result = $koneksi->query($sql);
+// Periksa apakah $id_kader memiliki nilai sebelum menjalankan query
 
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        // Mendeklarasikan variabel dengan nilai yang diambil dari database
-        $id = $row["id_kader"];
-        $nama = $row["nama_kader"];
-        $tanggal = $row["tgl_lahir"];
-        $alamat = $row["alamat"];
-        $jabatan = $row["jabatan"];
-        $tugas = $row["tugas_pokok"];
-        $passsword = $row["kata_sandi"];
-        $no_telp = $row["no_telp"];
+    // Query SQL untuk mengambil data dari tabel kader
+    $sql = "SELECT* FROM tbl_kader WHERE id_kader ='$kader'";
+    
+    $result = $koneksi->query($sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            // Mendeklarasikan variabel dengan nilai yang diambil dari database
+            $id = $row["id_kader"];
+            $nama = $row["nama_kader"];
+            $tanggal = $row["tgl_lahir"];
+            $alamat = $row["alamat"];
+            $jabatan = $row["jabatan"];
+            $tugas = $row["tugas_pokok"];
+            $password = $row["kata_sandi"];
+            $no_telp = $row["no_telp"];
+        }
+    } else {
+        echo "Tidak ada data kader yang ditemukan.";
     }
-} else {
-    echo "Tidak ada data kader yang ditemukan.";
-}
+
+
 
 // include('koneksi.php');
 // include('login.php');
@@ -110,7 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <!-- Form Group (first name)-->
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="id_kader">ID Kader</label>
-                                        <input class="form-control" id="id_kader" type="text" placeholder="Nik anda" value="<?php echo $id; ?>" name="id_kader" readonly name="id_kader">
+                                        <input class="form-control" id="id_kader" type="text" placeholder="Nik anda" value="<?php echo $kader; ?>" name="id_kader" readonly name="id_kader">
                                     </div>
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="nama_kader">Nama Kader</label>

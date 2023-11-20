@@ -1,5 +1,7 @@
-<?php 
+<?php
 include("koneksi.php");
+require_once("id.php");
+// include("id.php");
 // Proses login
 if (isset($_POST["submit"])) {
     $nama_kader = $_POST["nama_kader"];
@@ -13,7 +15,18 @@ if (isset($_POST["submit"])) {
     if ($result->num_rows == 1) {
         // Login berhasil, arahkan ke halaman lain
         // echo "login berhasil"; // Ganti dengan halaman setelah login berhasil
+        // Contoh penggunaan
+        $kader = new id();
+
+        // Mengatur id_kader setelah login berhasil
+        $row = $result->fetch_assoc();
+        $id = $row['id_kader'];
+        $kader->setIdKader($id);
+        session_start();
+        $_SESSION['id_kader'] = $id;
+
         header("Location: index.php");
+        // echo $kader->getIdKader();
         exit();
     } else {
         // Login gagal, tampilkan pesan error
@@ -21,10 +34,8 @@ if (isset($_POST["submit"])) {
         alert('Login gagal. Periksa kembali Nama Kader dan Password Anda.');
         location.replace('login1.php');
         </script>";
-        
     }
 }
 
 // Tutup koneksi database
 $koneksi->close();
-?>
