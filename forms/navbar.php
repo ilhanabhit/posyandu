@@ -17,7 +17,7 @@
             <h1><a href="index.php" class="logo" style="margin-left: 45px; font-size: 30px">SiDuta</a></h1>
             <ul class="list-unstyled components mb-5">
                 <li>
-               <a href="index.php">   Dashboard</a>
+               <a href="index.php"> Dashboard</a>
                 </li>
                 <li class="active" >
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" >Tabel Data</a>

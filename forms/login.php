@@ -1,8 +1,6 @@
 <?php
 include("koneksi.php");
-require_once("id.php");
-// include("id.php");
-// Proses login
+
 if (isset($_POST["submit"])) {
     $nama_kader = $_POST["nama_kader"];
     $password = $_POST["kata_sandi"];
@@ -16,12 +14,11 @@ if (isset($_POST["submit"])) {
         // Login berhasil, arahkan ke halaman lain
         // echo "login berhasil"; // Ganti dengan halaman setelah login berhasil
         // Contoh penggunaan
-        $kader = new id();
+        
 
         // Mengatur id_kader setelah login berhasil
         $row = $result->fetch_assoc();
         $id = $row['id_kader'];
-        $kader->setIdKader($id);
         session_start();
         $_SESSION['id_kader'] = $id;
 
