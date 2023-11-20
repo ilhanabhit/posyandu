@@ -157,7 +157,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </div>
 
                                 <!-- Simpan button-->
-                                <button class="btn btn-primary" type="submit" style="margin-left: 45%; width: 10%; height: 50px; border-radius: 5px; font-size: 15px; margin-top: 10px;">Simpan</button>
+                                <button class="btn btn-primary" type="submit" style="margin-left: 45%; width: 10%; height: 40px; border-radius: 5px; font-size: 15px; margin-top: 10px;">Simpan</button>
                             </form>
                         </div>
                     </div>
