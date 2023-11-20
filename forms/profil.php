@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $jabatanToUpdate = $_POST['jabatan'];
     $tugasPokokToUpdate = $_POST['tugas_pokok'];
     $passswordToUpdate = $_POST['password'];
-    $notelpToUpdate= $_POST["no_telp"];
+    $notelpToUpdate = $_POST["no_telp"];
 
     // Query SQL UPDATE untuk memperbarui data kader
     $sqlUpdate = "UPDATE tbl_kader SET 
@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Profil - SiDuta</title>
-    <link rel="icon" type="image/png" href="siduta.png"/>
+    <link rel="icon" type="image/png" href="siduta.png" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="coba123.css" rel="stylesheet" />
@@ -117,8 +117,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <input class="form-control" id="nama_kader" type="text" placeholder="Nama anda" value="<?php echo $nama; ?>" name="nama_kader">
                                     </div>
                                 </div>
-                                 <!-- Form Row        -->
-                                 <div class="row gx-3 mb-3">
+                                <!-- Form Row        -->
+                                <div class="row gx-3 mb-3">
                                     <!-- Form Group (organization name)-->
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="tgl_lahir">Tanggal Lahir</label>
@@ -132,7 +132,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </div>
                                 <!-- Form Row        -->
                                 <div class="row gx-3 mb-3">
-
                                     <!-- Form Group (location)-->
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="jabatan">Jabatan</label>
@@ -143,19 +142,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <input class="form-control" id="password" type="text" placeholder="password anda" value="<?php echo $passsword; ?>" name="password">
                                     </div>
                                 </div>
-                                <!-- Form Group (email address)-->
-                                <div class="col-mb-6">
-                                    <label class="small mb-1" for="tugas_pokok">Tugas pokok</label>
-                                    <input class="form-control" id="tugas_pokok" type="text" placeholder="Tugas anda" value="<?php echo $tugas; ?>" name="tugas_pokok">
+                                <div class="row gx-3 mb-3">
+                                    <!-- Form Group (email address)-->
+                                    <div class="col-md-6">
+                                        <label class="small mb-1" for="tugas_pokok">Tugas pokok</label>
+                                        <input class="form-control" id="tugas_pokok" type="text" placeholder="Tugas anda" value="<?php echo $tugas; ?>" name="tugas_pokok">
+                                    </div>
+
+                                    <!-- Form Row-->
+                                    <div class="col-md-6">
+                                        <label class="small mb-1" for="nomor telepon">nomor telpon</label>
+                                        <input class="form-control" id="nomor telepon" type="number" placeholder="nomor anda" value="<?php echo $no_telp; ?>" name="no_telp">
+                                    </div>
                                 </div>
 
-                                <!-- Form Row-->
-                                <div class="col-mb-6">
-                                    <label class="small mb-1" for="tugas_pokok">nomor telpon</label>
-                                    <input class="form-control" id="tugas_pokok" type="text" placeholder="nomor anda" value="<?php echo $no_telp; ?>" name="no_telp">
-                                </div>
                                 <!-- Simpan button-->
-                                <button class="btn btn-primary" type="submit" style="margin-left: 45%; width: 10%; height: 50px; border-radius: 5px; font-size: 15px; margin-top: 5%;">Simpan</button>
+                                <button class="btn btn-primary" type="submit" style="margin-left: 45%; width: 10%; height: 50px; border-radius: 5px; font-size: 15px; margin-top: 10px;">Simpan</button>
                             </form>
                         </div>
                     </div>
