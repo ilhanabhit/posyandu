@@ -218,13 +218,13 @@
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                             </div>
                                             <div class="modal-body">
-                                                <p>Apakah Anda yakin ingin menghapus data ini?</p>
-                                                <p class="text-warning"><small>Tindakan ini tidak bisa dibatalkan</small></p>
+                                                <p style="color: black;">Apakah Anda yakin ingin menghapus data ini?</p>
+                                                <p class="small" style="color: black; font-size: 115%;"><small> Ketika data terhapus Tindakan ini tidak bisa dibatalkan</small></p>
                                                 <input type="hidden" name="idToDelete" id="idToDelete">
                                             </div>
                                             <div class="modal-footer">
-                                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                                                <input type="submit" class="btn btn-danger" value="Delete" name="delete">
+                                                <input type="button" class="btn btn-default" data-dismiss="modal" style="background-color: blue; color: white;" value="Batal">
+                                                <input type="submit" class="btn btn-danger" value="Hapus" style="background-color: red;" name="Hapus">
                                             </div>
                                         </form>
                                     </div>

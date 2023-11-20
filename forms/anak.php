@@ -237,7 +237,7 @@
                                         </div>
                                         <div class="modal-body">
                                             <p class="small" style="color: black; font-size: 110%;">Apakah Anda yakin ingin menghapus data ini?</p>
-                                            <p class="small" style="color: black; font-size: 130%;"><small>Tindakan ini tidak bisa dibatalkan</small></p>
+                                            <p class="small" style="color: black; font-size: 115%;"><small> Ketika data terhapus Tindakan ini tidak bisa dibatalkan</small></p>
                                             <input type="hidden" name="idToDelete" id="idToDelete">
                                         </div>
                                         <div class="modal-footer">
