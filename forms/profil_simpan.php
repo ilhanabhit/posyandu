@@ -9,6 +9,7 @@ include('login.php');
                                     $tanggalLahirToUpdate = $_POST['tgl_lahir'];
                                     $alamatToUpdate = $_POST['alamat'];
                                     $jabatanToUpdate = $_POST['jabatan'];
+                                    $notelpToUpdate= $_POST["no_telp"];
                                     $tugasPokokToUpdate = $_POST['tugas_pokok'];
                                 
                                     // Query SQL UPDATE untuk memperbarui data kader
@@ -17,7 +18,8 @@ include('login.php');
                                         tgl_lahir = '$tanggalLahirToUpdate',
                                         alamat = '$alamatToUpdate',
                                         jabatan = '$jabatanToUpdate',
-                                        tugas_pokok = '$tugasPokokToUpdate'
+                                        tugas_pokok = '$tugasPokokToUpdate',
+                                        no_telp = '$notelpToUpdate'
                                         WHERE id_kader = $idKaderToUpdate";
                                 
                                     if ($koneksi->query($sqlUpdate) === TRUE) {

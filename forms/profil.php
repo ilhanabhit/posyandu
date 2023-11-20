@@ -2,7 +2,7 @@
 include("koneksi.php");
 
 // Query SQL untuk mengambil data dari tabel kader
-$sql = "SELECT id_kader, nama_kader, tgl_lahir, alamat, jabatan, tugas_pokok, kata_sandi FROM tbl_kader";
+$sql = "SELECT id_kader, nama_kader, tgl_lahir, alamat, jabatan, tugas_pokok, kata_sandi, no_telp FROM tbl_kader";
 
 $result = $koneksi->query($sql);
 
@@ -16,6 +16,7 @@ if ($result->num_rows > 0) {
         $jabatan = $row["jabatan"];
         $tugas = $row["tugas_pokok"];
         $passsword = $row["kata_sandi"];
+        $no_telp = $row["no_telp"];
     }
 } else {
     echo "Tidak ada data kader yang ditemukan.";
@@ -33,6 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $jabatanToUpdate = $_POST['jabatan'];
     $tugasPokokToUpdate = $_POST['tugas_pokok'];
     $passswordToUpdate = $_POST['password'];
+    $notelpToUpdate= $_POST["no_telp"];
 
     // Query SQL UPDATE untuk memperbarui data kader
     $sqlUpdate = "UPDATE tbl_kader SET 
@@ -41,7 +43,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         alamat = '$alamatToUpdate',
                                         jabatan = '$jabatanToUpdate',
                                         tugas_pokok = '$tugasPokokToUpdate',
-                                        kata_sandi = '$passswordToUpdate'
+                                        kata_sandi = '$passswordToUpdate',
+                                        no_telp = '$notelpToUpdate'
                                         WHERE id_kader = $idKaderToUpdate";
 
     if ($koneksi->query($sqlUpdate) === TRUE) {
@@ -141,17 +144,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     </div>
                                 </div>
                                 <!-- Form Group (email address)-->
-                                <div class="mb-3">
+                                <div class="col-mb-6">
                                     <label class="small mb-1" for="tugas_pokok">Tugas pokok</label>
                                     <input class="form-control" id="tugas_pokok" type="text" placeholder="Tugas anda" value="<?php echo $tugas; ?>" name="tugas_pokok">
                                 </div>
 
                                 <!-- Form Row-->
-                                <div class="row gx-3 mb-3">
-                                    <!-- Form Group (phone number)-->
+                                <div class="col-mb-6">
+                                    <label class="small mb-1" for="tugas_pokok">nomor telpon</label>
+                                    <input class="form-control" id="tugas_pokok" type="text" placeholder="nomor anda" value="<?php echo $no_telp; ?>" name="no_telp">
                                 </div>
                                 <!-- Simpan button-->
-                                <button class="btn btn-primary" type="submit" style="margin-left: 45%; width: 10%; height: 40px; border-radius: 5px; font-size: 15px;">Simpan</button>
+                                <button class="btn btn-primary" type="submit" style="margin-left: 45%; width: 10%; height: 50px; border-radius: 5px; font-size: 15px; margin-top: 5%;">Simpan</button>
                             </form>
                         </div>
                     </div>
