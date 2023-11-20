@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>landing Page  - SiDuta</title>
+  <title>landing Page - SiDuta</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -41,7 +41,6 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center header-transparent">
     <div class="container d-flex align-items-center justify-content-between">
-
       <div class="header">
         <h1 class="header">
           <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="Logo"></a>
@@ -62,10 +61,11 @@
           <li><a class="nav-link scrollto" href="#artikel">Artikel</a></li>
           <li><a class="nav-link scrollto" href="#team">Kader</a></li>
           <li><a class="nav-link scrollto" href="#footer">Kontak</a></li>
-          <li><a class="nav-link scrollto" href="forms/login1.php" style="color: yellow;;">Masuk</a></a></li>
+          <li><a class="nav-link scrollto" href="forms/login1.php" style="color: yellow;">Masuk</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
+
       <!-- .navbar -->
 
     </div>
@@ -364,60 +364,66 @@
     <!-- ==== Artikel ==== -->
     <section id="artikel" class="artikel">
       <div class="container">
-      <style>
-  .artikel-container {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  width: 100%; /* Ensure the container takes the full width of its parent */
-  padding-bottom: 20px; /* Add some bottom padding to give space for the scrollbar */
-}
+        <style>
+          .artikel-container {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            width: 100%;
+            /* Ensure the container takes the full width of its parent */
+            padding-bottom: 20px;
+            /* Add some bottom padding to give space for the scrollbar */
+          }
 
-/* Ensure each article item has a minimum width and is flexible */
-.artikel-item {
-  width: 30%;
-  height: 50%;
-  flex: 0 0 auto; /* Let the items be of their original size */
-  background-color: #ffbb2c;
-  text-align: center;
-  border: 1px solid #ddd;
-  min-width: 255px;
-}
+          /* Ensure each article item has a minimum width and is flexible */
+          .artikel-item {
+            width: 30%;
+            height: 50%;
+            flex: 0 0 auto;
+            /* Let the items be of their original size */
+            background-color: #ffbb2c;
+            text-align: center;
+            border: 1px solid #ddd;
+            min-width: 255px;
+          }
 
-/* Adjustments to make the content scrollable */
-.artikel-info {
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+          /* Adjustments to make the content scrollable */
+          .artikel-info {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
 
-.judul-artikel {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 10px; /* Add some space between title and date */
-}
+          .judul-artikel {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            /* Add some space between title and date */
+          }
 
-.tgl-dibuat {
-  font-size: 12px;
-  margin-bottom: 10px; /* Add some space between date and content */
-}
+          .tgl-dibuat {
+            font-size: 12px;
+            margin-bottom: 10px;
+            /* Add some space between date and content */
+          }
 
-.isi-artikel {
-  max-height: 120px;
-  overflow-y: auto; /* Enable vertical scrolling for content */
-  padding: 6px;
-  border: 0px;
-  word-wrap: break-word;
-  white-space: normal;
-  text-align: justify;
-}
-.artikel-img{
-  width: 30%;
-  height: 50%;
-}
+          .isi-artikel {
+            max-height: 120px;
+            overflow-y: auto;
+            /* Enable vertical scrolling for content */
+            padding: 6px;
+            border: 0px;
+            word-wrap: break-word;
+            white-space: normal;
+            text-align: justify;
+          }
 
-</style>
+          .artikel-img {
+            width: 30%;
+            height: 50%;
+          }
+        </style>
 
         <div class="section-title" data-aos="fade-up">
           <h2>Artikel</h2>
@@ -442,7 +448,7 @@
               $tgl_dibuat = $row['tgl_dibuat'];
               $nama_kader = $row['nama_kader'];
           ?>
-              <div class="artikel-item" >
+              <div class="artikel-item">
                 <img src="forms/berkas/<?php echo $img_artikel; ?>" class="img-fluid artikel-img" data-toggle="modal" data-target="#viewArticleModal-<?php echo $id_artikel; ?>">
                 <div class="artikel-info">
                   <h4 class="judul-artikel"><?php echo $judul_artikel; ?></h4>
@@ -500,7 +506,7 @@
                 <h4>Menteri Kesehatan (Menkes)</h4>
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  “Yang menarik buat saya adalah to promote healthy life and well being tidak ada kata-kata to cure people. Menjaga orang tetap sehat dan sejahtera, jadi tidak ada kata-kata mengobati orang sakit,” 
+                  “Yang menarik buat saya adalah to promote healthy life and well being tidak ada kata-kata to cure people. Menjaga orang tetap sehat dan sejahtera, jadi tidak ada kata-kata mengobati orang sakit,”
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
               </div>
@@ -722,6 +728,7 @@
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
+
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -742,7 +749,7 @@
       // Tambahkan event listener untuk menangani penutupan modal
       $('.modal').on('hidden.bs.modal', function() {
         // Alihkan ke halaman landing page saat modal ditutup
-        window.location.href = 'artikel';
+        window.location.href = 'index.php';
       });
     });
   </script>
