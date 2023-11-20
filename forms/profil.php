@@ -149,7 +149,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     </div>
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="password">password</label>
-                                        <input class="form-control" id="password" type="text" placeholder="password anda" value="<?php echo $passsword; ?>" name="password">
+                                        <input class="form-control" id="password" type="text" placeholder="password anda" value="<?php echo $password; ?>" name="password">
                                     </div>
                                 </div>
                                 <div class="row gx-3 mb-3">
