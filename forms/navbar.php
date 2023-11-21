@@ -42,8 +42,7 @@
                 <li>
                     <a href="profil.php"><span class="fa fa-user mr-3"></span> Profil Kader</a>
                 <li>
-                    <a href="login1.php" onclick="confirmLogout()"><span class="fa fa-sign-out mr-3"></span> Keluar</a>
-                </li>
+                    <a href="login1.php" onclick="return confirmLogout()"><span class="fa fa-sign-out mr-3"></span> Keluar</a>
                 </li>
             </ul>
             <script>
@@ -52,13 +51,16 @@
                     if (confirmLogout) {
                         window.location.href = "login1.php";
                     } else {
-                        // If user clicks "Cancel", stay on the current page
+                        // If user clicks "Cancel", do nothing
+                        return false;
                     }
                 }
             </script>
+
             </li>
             </ul>
         </div>
     </nav>
 </body>
+
 </html>
