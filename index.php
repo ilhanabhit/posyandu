@@ -43,7 +43,7 @@
     <div class="container d-flex align-items-center justify-content-between">
       <div class="header">
         <h1 class="header">
-          <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="Logo"></a>
+          <a href="index.php" class="logo"><img src="assets/img/logo.png" alt="Logo"></a>
           <span>
             Sistem Informasi<br>
             Posyandu Balita

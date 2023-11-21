@@ -19,7 +19,7 @@
             <h1><a href="index.php" class="logo" style="margin-left: 45px; font-size: 30px">SiDuta</a></h1>
             <ul class="list-unstyled components mb-5">
                 <li class="active">
-                    <a href="index.php"><span class="fa fa-dashboard mr-3"></span>Dashboard</a>
+                    <a href="dashboard.php"><span class="fa fa-dashboard mr-3"></span>Dashboard</a>
                 </li>
                 <li>
                     <a href="anak.php"><span class="fa fa-baby mr-3"></span>Data Anak</a>

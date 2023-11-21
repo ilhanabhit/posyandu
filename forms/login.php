@@ -22,7 +22,7 @@ if (isset($_POST["submit"])) {
         session_start();
         $_SESSION['id_kader'] = $id;
 
-        header("Location: index.php");
+        header("Location: dashboard.php");
         // echo $kader->getIdKader();
         exit();
     } else {
