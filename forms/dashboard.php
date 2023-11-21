@@ -206,7 +206,7 @@
 								<div class="card shadow mb-4" style="width: 750px;">
 									<!-- Card Header - Dropdown -->
 									<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-										<h6 class="m-0 font-weight-bold text-primary">Tabel Data Balita</h6>
+										<h6 class="m-0 font-weight-bold text-primary" style="font-size: 15px;">Tabel Data Balita</h6>
 										<div class="dropdown no-arrow">
 											<img src="ikon2jpg.jpg" alt="Calendar Icon" class="icon" style="width: 18px; height: 18px;">
 										</div>
@@ -313,7 +313,7 @@
 								<div class="card shadow mb-4 " style="height: 95%;">
 									<!-- Card Header - Dropdown -->
 									<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-										<h6 class="m-0 font-weight-bold text-primary">Grafik Balita</h6>
+										<h6 class="m-0 font-weight-bold text-primary" style="font-size: 15px;">Grafik Balita</h6>
 										<div class="dropdown no-arrow">
 											<img src="ikon2jpg.jpg" alt="Calendar Icon" class="icon" style="width: 18px; height: 18px;">
 										</div>

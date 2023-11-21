@@ -36,7 +36,7 @@
 			</style>
 			<div class="wrap-login100">
 				<div class="login100-pic js-tilt" data-tilt>
-					<img src="sarjono.png" alt="IMG" style="margin-left: 10%; width: 100%; height: 80%; margin-top: -10%;">
+					<img src="sarjono.png" alt="IMG" style="margin-left: 10%; width: 100%; height: 95%; margin-top: -20%;">
 				</div>
 				<form name="loginForm" class="login100-form validate-form" action="lupaSandi1.php" method="POST" onsubmit="return validateForm()">
 					<span class="login100-form-title" style="margin-top: -20%;">

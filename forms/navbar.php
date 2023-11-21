@@ -15,8 +15,8 @@
             </button>
         </div>
         <div class="p-4 pt-5" style="background-color: #0205a1;">
-            <img src="siduta.png" alt="logo" style="margin-left: 30%;">
-            <h1><a href="index.php" class="logo" style="margin-left: 45px; font-size: 30px">SiDuta</a></h1>
+            <img src="siduta.png" alt="logo" style="margin-left: 70px;">
+            <h1><a href="dashboard.php" class="logo" style=" font-size: 13px; color: #62C7C3; ">sistem informasi posyandu balita</a></h1>
             <ul class="list-unstyled components mb-5">
                 <li class="active">
                     <a href="dashboard.php"><span class="fa fa-dashboard mr-3"></span>Dashboard</a>
