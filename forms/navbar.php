@@ -19,28 +19,28 @@
             <h1><a href="index.php" class="logo" style="margin-left: 45px; font-size: 30px">SiDuta</a></h1>
             <ul class="list-unstyled components mb-5">
                 <li class="active">
-                    <a href="index.php"><span class="fa fa-dashboard mr-3"></span> Dashboard</a>
+                    <a href="index.php"><span class="fa fa-dashboard mr-3"></span>Dashboard</a>
                 </li>
                 <li>
-                    <a href="anak.php"><span class="fa fa-baby mr-3"></span> Data Anak</a>
+                    <a href="anak.php"><span class="fa fa-baby mr-3"></span>Data Anak</a>
                 </li>
                 <li>
-                    <a href="imunisasi.php"><span class="fa fa-syringe mr-3"></span> Data Imunisasi</a>
+                    <a href="imunisasi.php"><span class="fa fa-syringe mr-3"></span>Data Imunisasi</a>
                 </li>
                 <li>
-                    <a href="timbang.php"><span class="fa fa-balance-scale mr-3"></span> Data Penimbangan</a>
+                    <a href="timbang.php"><span class="fa fa-balance-scale mr-3"></span>Data Penimbangan</a>
                 </li>
                 <li>
-                    <a href="kader.php"><span class="fa fa-users mr-3"></span> Data Kader</a>
+                    <a href="kader.php"><span class="fa fa-users mr-3"></span>Data Kader</a>
                 </li>
                 <li>
-                    <a href="jadwal.php"><span class="fa fa-calendar mr-3"></span> jadwal</a>
+                    <a href="jadwal.php"><span class="fa fa-calendar mr-3"></span>jadwal</a>
                 </li>
                 <li>
-                    <a href="artikel.php"><span class="fa fa-newspaper mr-3"></span> Artikel</a>
+                    <a href="artikel.php"><span class="fa fa-newspaper mr-3"></span>Artikel</a>
                 </li>
                 <li>
-                    <a href="profil.php"><span class="fa fa-user mr-3"></span> Profil Kader</a>
+                    <a href="profil.php"><span class="fa fa-user mr-3"></span>Profil Kader</a>
                 <li>
                     <a href="login1.php" onclick="return confirmLogout()"><span class="fa fa-sign-out mr-3"></span> Keluar</a>
                 </li>
