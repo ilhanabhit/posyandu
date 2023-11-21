@@ -19,12 +19,12 @@
 </head>
 
 <body style="height: max-content;">
-	<div class="wrapper d-flex align-items-stretch">
-		<!-- navbar -->
-		<?php include 'navbar.php'; ?>
-		<!-- end navbar  -->
-		<!-- Page Content  -->
-		<div id="content" class="p-4 p-md-5 pt-5">
+    <div class="wrapper d-flex align-items-stretch">
+        <!-- navbar -->
+        <?php include 'navbar.php'; ?>
+        <!-- end navbar  -->
+        <!-- Page Content  -->
+        <div id="content" class="p-4 p-md-5 pt-5">
 			<main>
 				<div class="dashboard-container">
 					<h1>Dashboard</h1>
