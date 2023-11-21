@@ -230,7 +230,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <input type="button" class="btn btn-default" data-dismiss="modal" value="Batal" style="background-color: blue; color: white;">
-                                                <input type="submit" class="btn btn-danger" value="Hapus" name="delete">
+                                                <input type="submit" class="btn btn-danger" value="Hapus" name="Hapus" style="background-color: red;">
                                             </div>
                                         </form>
                                     </div>
