@@ -10,13 +10,14 @@ $kader = $_SESSION['id_kader'];
 // Periksa apakah $id_kader memiliki nilai sebelum menjalankan query
 
     // Query SQL untuk mengambil data dari tabel kader
-    $sql = "SELECT* FROM tbl_kader WHERE id_kader ='$kader'";
+    $sql = "SELECT * FROM `tbl_kader` WHERE id_kader ='$kader'";
     
     $result = $koneksi->query($sql);
 
     if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
+        // while ($row = $result->fetch_assoc()) {
             // Mendeklarasikan variabel dengan nilai yang diambil dari database
+            $row = $result->fetch_assoc();
             $id = $row["id_kader"];
             $nama = $row["nama_kader"];
             $tanggal = $row["tgl_lahir"];
@@ -25,7 +26,7 @@ $kader = $_SESSION['id_kader'];
             $tugas = $row["tugas_pokok"];
             $password = $row["kata_sandi"];
             $no_telp = $row["no_telp"];
-        }
+        // }
     } else {
         echo "Tidak ada data kader yang ditemukan.";
     }
@@ -68,6 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Terjadi kesalahan saat memperbarui data: " . $koneksi->error;
     }
 }
+
 ?>
 
 

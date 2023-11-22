@@ -84,9 +84,9 @@
                                 <?php
                                 include("koneksi.php");
                                 // Query SQL dengan INNER JOIN
-                                $sql = "SELECT tbl_anak.*, tbl_ibu.nama_ibu 
+                                $sql = "SELECT tbl_anak.*, tbl_orangtua.nama_ibu 
                                         FROM tbl_anak
-                                        INNER JOIN tbl_ibu ON tbl_anak.id_ibu = tbl_ibu.id_ibu";
+                                        INNER JOIN tbl_orangtua ON tbl_anak.nik_ibu = tbl_orangtua.nik_ibu";
 
                                 $result = $koneksi->query($sql);
 
@@ -97,7 +97,7 @@
                                         echo "<th>" . $row["id_anak"] . "</th>";
                                         echo "<th>" . $row["nama_anak"] . "</th>";
                                         echo "<th>" . $row["jenis_kelamin"] . "</th>";
-                                        echo "<th>" . $row["tgl_lahir"] . "</th>";
+                                        echo "<th>" . $row["tanggal_lahir_anak"] . "</th>";
                                         echo "<th>" . $row["bb_lahir"] . "</th>";
                                         echo "<th>" . $row["tb_lahir"] . "</th>";
                                         echo "<th>" . $row["alamat"] . "</th>";
@@ -134,7 +134,7 @@
                                       </div>
                                       <div class='form-group'>
                                         <label for='tanggal-lahir-" . $row["id_anak"] . "'>Tanggal Lahir</label>
-                                        <input type='date' class='form-control' id='tanggal-lahir-" . $row["id_anak"] . "' name='tanggal-lahir' value='" . $row["tgl_lahir"] . "' required>
+                                        <input type='date' class='form-control' id='tanggal-lahir-" . $row["id_anak"] . "' name='tanggal-lahir' value='" . $row["tanggal_lahir_anak"] . "' required>
                                       </div>
                                       <div class='form-group'>
                                         <label for='bb-lahir-" . $row["id_anak"] . "'>Berat Badan</label>
@@ -215,13 +215,29 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="nama-ibu">Nama Ibu</label>
-                                                <input type="text" id="nama-ibu" name="nama-ibu" class="form-control" required>
+                                                <select id="nama-ibu" name="nama-ibu" class="form-control" required>
+                                                    <option value="">Pilih Nama Ibu</option>
+                                                    <?php
+                                                    include('koneksi.php'); // Sisipkan file koneksi.php
+
+                                                    $query = "SELECT nama_ibu FROM tbl_orangtua";
+                                                    $result = $koneksi->query($query);
+
+                                                    if ($result->num_rows > 0) {
+                                                        while ($row = $result->fetch_assoc()) {
+                                                            $namaIbu = $row['nama_ibu'];
+                                                            echo "<option value='$namaIbu'>$namaIbu</option>";
+                                                        }
+                                                    }
+                                                    ?>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
                                             <input type="button" class="btn btn-default" data-dismiss="modal" value="Batal" style="background-color: red; color: white;">
                                             <input type="submit" class="btn btn-success" value="Tambah" style="background-color: green;">
                                         </div>
+                                        
                                     </form>
                                 </div>
                             </div>

@@ -83,7 +83,7 @@
 					$total_perempuan = $rowPerempuan["total_perempuan"];
 				}
 				// Query SQL untuk mengambil total penimbangan
-				$queryPenimbangan = "SELECT COUNT(*) AS total_penimbangan FROM tbl_penimbangan";
+				$queryPenimbangan = "SELECT COUNT(*) AS total_penimbangan FROM penimbangan";
 				$resultPenimbangan = $koneksi->query($queryPenimbangan);
 
 				if ($resultPenimbangan->num_rows > 0) {
@@ -92,7 +92,7 @@
 				}
 
 				// Query SQL untuk mengambil total imunisasi
-				$queryImunisasi = "SELECT COUNT(*) AS total_imunisasi FROM tbl_imunisasi";
+				$queryImunisasi = "SELECT COUNT(*) AS total_imunisasi FROM imunisasi";
 				$resultImunisasi = $koneksi->query($queryImunisasi);
 
 				if ($resultImunisasi->num_rows > 0) {
@@ -274,9 +274,9 @@
 													<?php
 													include("koneksi.php");
 													// Query SQL dengan INNER JOIN
-													$sql = "SELECT tbl_anak.*, tbl_ibu.nama_ibu 
+													$sql = "SELECT tbl_anak.*, tbl_orangtua.nama_ibu 
                            								FROM tbl_anak
-                           								INNER JOIN tbl_ibu ON tbl_anak.id_ibu = tbl_ibu.id_ibu";
+                           								INNER JOIN tbl_orangtua ON tbl_anak.nik_ibu = tbl_orangtua.nik_ibu";
 
 													$result = $koneksi->query($sql);
 
@@ -287,7 +287,7 @@
 															echo "<th>" . $row["id_anak"] . "</th>";
 															echo "<th>" . $row["nama_anak"] . "</th>";
 															echo "<th>" . $row["jenis_kelamin"] . "</th>";
-															echo "<th>" . $row["tgl_lahir"] . "</th>";
+															echo "<th>" . $row["tanggal_lahir_anak"] . "</th>";
 															echo "<th>" . $row["bb_lahir"] . "</th>";
 															echo "<th>" . $row["tb_lahir"] . "</th>";
 															echo "<th>" . $row["alamat"] . "</th>";

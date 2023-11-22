@@ -49,8 +49,6 @@
             Posyandu Balita
           </span>
         </h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
 
       <nav id="navbar" class="navbar">
@@ -213,7 +211,7 @@
     include('koneksi.php');
 
     // Query untuk mengambil data dari tabel tbl_ibu
-    $queryIbu = "SELECT COUNT(id_ibu) AS total_ibu FROM tbl_ibu";
+    $queryIbu = "SELECT COUNT(nik_ibu) AS total_ibu FROM tbl_orangtua";
     $resultIbu = mysqli_query($koneksi, $queryIbu);
     $totalIbu = 0;
 
@@ -433,10 +431,10 @@
           <?php
           include('koneksi.php');
 
-          $query = "SELECT a.id_artikel, a.judul_artikel, a.isi_artikel, a.img_artikel, a.tgl_dibuat, k.nama_kader
+          $query = "SELECT a.id_artikel, a.judul_artikel, a.isi_artikel, a.img_artikel, a.tanggal_artikel, k.nama_kader
              FROM tbl_artikel a
              JOIN tbl_kader k ON a.id_kader = k.id_kader
-             ORDER BY a.tgl_dibuat DESC";
+             ORDER BY a.tanggal_artikel DESC";
           $result = $koneksi->query($query);
 
           if ($result->num_rows > 0) {
@@ -445,14 +443,14 @@
               $judul_artikel = $row['judul_artikel'];
               $isi_artikel = $row['isi_artikel'];
               $img_artikel = $row['img_artikel'];
-              $tgl_dibuat = $row['tgl_dibuat'];
+              $tanggal_artikel = $row['tanggal_artikel'];
               $nama_kader = $row['nama_kader'];
           ?>
               <div class="artikel-item">
                 <img src="forms/berkas/<?php echo $img_artikel; ?>" class="img-fluid artikel-img" data-toggle="modal" data-target="#viewArticleModal-<?php echo $id_artikel; ?>">
                 <div class="artikel-info">
                   <h4 class="judul-artikel"><?php echo $judul_artikel; ?></h4>
-                  <span class="tgl-dibuat"><?php echo $nama_kader; ?> (<?php echo $tgl_dibuat; ?>)</span>
+                  <span class="tgl-dibuat"><?php echo $nama_kader; ?> (<?php echo $tanggal_artikel; ?>)</span>
                   <div class="isi-artikel"><?php echo substr($isi_artikel, 0, 100) . '...'; ?></div>
                 </div>
               </div>
@@ -467,7 +465,7 @@
                     <div class='modal-body'>
                         <div class='text-center'>
                             <p><b>" . $row["judul_artikel"] . "</b></p>
-                            <p style='font-size: 80%;' >Dibuat Oleh: " . $nama_kader . " (" . $tgl_dibuat . ")</p>
+                            <p style='font-size: 80%;' >Dibuat Oleh: " . $nama_kader . " (" . $tanggal_artikel . ")</p>
                         </div>
                         <div class='form-group'>
                             <img src='forms/berkas/" . $row["img_artikel"] . "' alt='Gambar Artikel' style='max-width: 100%; height: auto;'>

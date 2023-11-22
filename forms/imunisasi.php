@@ -76,9 +76,9 @@
                                     <?php
                                     include("koneksi.php");
                                     // Query SQL dengan INNER JOIN untuk mengambil data imunisasi anak
-                                    $sql = "SELECT tbl_imunisasi.*, tbl_anak.nama_anak 
-            FROM tbl_imunisasi
-            INNER JOIN tbl_anak ON tbl_imunisasi.id_anak = tbl_anak.id_anak";
+                                    $sql = "SELECT imunisasi.*, tbl_anak.nama_anak 
+            FROM imunisasi
+            INNER JOIN tbl_anak ON imunisasi.id_anak = tbl_anak.id_anak";
 
                                     $result = $koneksi->query($sql);
 
@@ -87,7 +87,7 @@
                                             echo "<tr>";
                                             echo "<th>" . $row["id_anak"] . "</th>";
                                             echo "<th>" . $row["nama_anak"] . "</th>";
-                                            echo "<th>" . $row["tgl_imunisasi"] . "</th>";
+                                            echo "<th>" . $row["tanggal_imunisasi"] . "</th>";
                                             echo "<th>" . $row["jenis_imunisasi"] . "</th>";
                                             echo "<th>
               <a href='#editImunisasiModal-" . $row["id_imunisasi"] . "' class='edit' data-toggle='modal'><i class='material-icons' data-toggle='tooltip' title='Edit'>&#xE254;</i></a>
@@ -112,7 +112,7 @@
                       </div>
                       <div class='form-group'>
                         <label for='tgl_imunisasi-" . $row["id_imunisasi"] . "'>Tanggal Imunisasi</label>
-                        <input type='date' class='form-control' id='tgl_imunisasi-" . $row["id_imunisasi"] . "' name='tgl_imunisasi' value='" . $row["tgl_imunisasi"] . "' required>
+                        <input type='date' class='form-control' id='tgl_imunisasi-" . $row["id_imunisasi"] . "' name='tgl_imunisasi' value='" . $row["tanggal_imunisasi"] . "' required>
                       </div>
                       <div class='form-group'>
                         <label for='jenis_imunisasi-" . $row["id_imunisasi"] . "'>Jenis Imunisasi</label>

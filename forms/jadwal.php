@@ -80,9 +80,9 @@
                                     <!-- Tambahkan baris berikut ke dalam tabel tbody untuk menampilkan data jadwal imunisasi -->
                                     <?php
                                     include("koneksi.php");
-                                    $sql = "SELECT tbl_jadwal.*, tbl_anak.nama_anak 
-        FROM tbl_jadwal
-        INNER JOIN tbl_anak ON tbl_jadwal.id_anak = tbl_anak.id_anak";
+                                    $sql = "SELECT jadwal.*, tbl_anak.nama_anak 
+        FROM jadwal
+        INNER JOIN tbl_anak ON jadwal.id_anak = tbl_anak.id_anak";
 
                                     $result = $koneksi->query($sql);
 
@@ -92,9 +92,9 @@
                                             echo "<td>" . $row["id_anak"] . "</td>";
                                             echo "<td>" . $row["nama_anak"] . "</td>";
                                             echo "<td>" . $row["jenis_imunisasi"] . "</td>";
-                                            echo "<td>" . $row["tanggal_imun_timbang"] . "</td>";
+                                            echo "<td>" . $row["tanggal_posyandu"] . "</td>";
                                             echo "<td>" . $row["jam_posyandu"] . "</td>";
-                                            echo "<td>" . $row["tempat"] . "</td>";
+                                            echo "<td>" . $row["tempat_posyandu"] . "</td>";
                                             echo "<td>
               <a href='#viewJadwalModal-" . $row["id_jadwal"] . "' class='edit' data-toggle='modal'><i class='material-icons' data-toggle='tooltip' title=View'>&#xE8FF;</i></a>
               <a href='#deleteJadwalModal' class='delete' data-toggle='modal' data-id='" . $row["id_jadwal"] . "'><i class='material-icons' data-toggle='tooltip' title='Delete'>&#xE872;</i></a>
@@ -115,11 +115,11 @@
                                                         <p><strong>Jenis Imunisasi:</strong></p>
                                                         <p id='jenis-imunisasi-" . $row["id_jadwal"] . "'>" . $row["jenis_imunisasi"] . "</p>
                                                         <p><strong>Tanggal Posyandu:</strong></p>
-                                                        <p id='tanggal-imunisasi-" . $row["id_jadwal"] . "'>" . $row["tanggal_imun_timbang"] . "</p>
+                                                        <p id='tanggal-imunisasi-" . $row["id_jadwal"] . "'>" . $row["tanggal_posyandu"] . "</p>
                                                         <p><strong>Jam Posyandu:</strong></p>
                                                         <p id='jam_posyandu-" . $row["id_jadwal"] . "'>" . $row["jam_posyandu"] . "</p>
                                                         <p><strong>Tempat Posyandu:</strong></p>
-                                                        <p id='tempat-" . $row["id_jadwal"] . "'>" . $row["tempat"] . "</p>
+                                                        <p id='tempat-" . $row["id_jadwal"] . "'>" . $row["tempat_posyandu"] . "</p>
                                                     </div>
                                                     <div class='modal-footer'>
                                                         <button type='button' class='btn btn-default' data-dismiss='modal'>Tutup</button>
@@ -141,7 +141,7 @@
                             <div id="addJadwalModal" class="modal fade">
                                 <style>
                                     .form-control {
-                                        
+
                                         display: block;
                                         width: 100%;
                                         height: calc(1.5em + 0.75rem + 2px);
@@ -171,19 +171,13 @@
                                             <div class="modal-body">
                                                 <div class="form-group">
                                                     <label for="id_anak" style="font-size: 15px;">Pilih Anak</label>
-                                                    <select id="id_anak" name="id_anak" style="font-size: 13px;" class="form-control" required>
+                                                    <select id="id_anak" name="id_anak" style="font-size: 13px;" class="form-control" required onchange="updateUmurAnak()">
                                                         <?php
                                                         include("koneksi.php");
-                                                        $sql = "SELECT id_anak, nama_anak, tgl_lahir FROM tbl_anak";
+                                                        $sql = "SELECT id_anak, nama_anak, tanggal_lahir_anak FROM tbl_anak";
                                                         $result = $koneksi->query($sql);
                                                         while ($row = $result->fetch_assoc()) {
-                                                            // Hitung umur anak dalam bulan
-                                                            $tgl_lahir = new DateTime($row['tgl_lahir']);
-                                                            $today = new DateTime();
-                                                            $umur = $today->diff($tgl_lahir);
-                                                            $umur_bulan = ($umur->y * 12) + $umur->m;
-
-                                                            echo "<option value='" . $row['id_anak'] . "'>" . $row['nama_anak'] . " (Umur: " . $umur_bulan . " bulan)</option>";
+                                                            echo "<option value='" . $row['id_anak'] . "' data-tanggal_lahir='" . $row['tanggal_lahir_anak'] . "'>" . $row['nama_anak'] . "</option>";
                                                         }
                                                         ?>
                                                     </select>
@@ -191,17 +185,11 @@
                                                 <div class="form-group">
                                                     <label for="umur_anak" style="font-size: 15px;">Umur Bayi (bulan)</label>
                                                     <select id="umur_anak" name="umur_anak" style="font-size: 13px;" class="form-control" required>
-                                                        <option value="0">0 bulan</option>
-                                                        <option value="1">1 bulan</option>
-                                                        <option value="2">2 bulan</option>
-                                                        <option value="4">4 bulan</option>
-                                                        <option value="6">6 bulan</option>
-                                                        <option value="9">9 bulan</option>
-                                                        <!-- Tambahkan opsi lain sesuai dengan umur bayi -->
+                                                        <!-- Options will be filled dynamically using JavaScript -->
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="jenis_imunisasi"  style="font-size: 15px;">Jenis Imunisasi</label>
+                                                    <label for="jenis_imunisasi" style="font-size: 15px;">Jenis Imunisasi</label>
                                                     <select id="jenis_imunisasi" name="jenis_imunisasi" style="font-size: 13px;" class="form-control" required>
                                                         <!-- Pilihan vaksin akan diisi secara dinamis menggunakan JavaScript -->
                                                     </select>
@@ -212,7 +200,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="tempat" style="font-size: 15px;">Tempat Posyandu</label>
-                                                    <input type="text" id="tempat" name="tempat" style="font-size: 13px;"  class="form-control" required>
+                                                    <input type="text" id="tempat" name="tempat" style="font-size: 13px;" class="form-control" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="jam_posyandu" style="font-size: 15px;">Jam Posyandu</label>
@@ -286,6 +274,28 @@
             // Inisialisasi DataTable
             $('#myTable').DataTable();
         });
+    </script>
+    <script>
+        function updateUmurAnak() {
+            var selectedAnak = document.getElementById("id_anak");
+            var umurAnakField = document.getElementById("umur_anak");
+            var selectedOption = selectedAnak.options[selectedAnak.selectedIndex];
+            var tanggalLahir = selectedOption.getAttribute("data-tanggal_lahir");
+
+            // Calculate age in months
+            var today = new Date();
+            var birthDate = new Date(tanggalLahir);
+            var ageInMonths = (today.getFullYear() - birthDate.getFullYear()) * 12 + today.getMonth() - birthDate.getMonth();
+
+            // Populate the Umur Bayi dropdown
+            umurAnakField.innerHTML = ""; // Clear existing options
+            for (var i = 0; i <= ageInMonths; i++) {
+                umurAnakField.innerHTML += "<option value='" + i + "'>" + i + " bulan</option>";
+            }
+        }
+
+        // Initial call to populate Umur Bayi based on the default selected child
+        updateUmurAnak();
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {

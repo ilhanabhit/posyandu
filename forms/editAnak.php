@@ -12,21 +12,22 @@ if(isset($_POST['update'])){
     $namaIbu = $_POST['nama-ibu'];
 
     // Fetch the id_ibu based on the selected "Nama Ibu"
-    $query = "SELECT id_ibu FROM tbl_ibu WHERE nama_ibu = '$namaIbu'";
+    $query = "SELECT nik_ibu FROM tbl_orangtua WHERE nama_ibu = '$namaIbu'";
     $result = $koneksi->query($query);
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        $idIbu = $row['id_ibu'];
+        $idIbu = $row['nik_ibu'];
 
         // Update child data in the database, including the id_ibu
         $sql = "UPDATE tbl_anak SET 
+                nama_anak = '$namaBalita',
                 jenis_kelamin = '$jenisKelamin',
-                tgl_lahir = '$tanggalLahir',
+                tanggal_lahir_anak = '$tanggalLahir',
                 bb_lahir = '$beratBadan',
                 tb_lahir = '$tinggiBadan',
                 alamat = '$alamat',
-                id_ibu = '$idIbu'
+                nik_ibu = '$idIbu'
                 WHERE id_anak = '$nikBalita'";
 
         if ($koneksi->query($sql) === TRUE) {
@@ -35,10 +36,14 @@ if(isset($_POST['update'])){
         location.replace('anak.php');
         </script>";
         } else {
-            echo "Error updating data: " . $koneksi->error;
+            echo "<script type='text/javascript'>
+        alert('". $sql . "<br>" . $koneksi->error."'); </script>";
         }
     } else {
-        echo "Nama Ibu tidak ditemukan dalam database.";
+        echo "<script type='text/javascript'>
+        alert('Nama ibu tidak ditemukan dalam database.');
+        location.replace('anak.php');
+        </script>";
     }
 
     $koneksi->close();

@@ -91,7 +91,7 @@
                                             $judul = $row['judul_artikel'];
                                             $deskripsi = $row['isi_artikel'];
                                             $gambar = $row['img_artikel'];
-                                            $tanggal_dibuat = $row['tgl_dibuat'];
+                                            $tanggal_dibuat = $row['tanggal_artikel'];
                                             $nama_kader = $row['nama_kader'];
 
                                             echo '<tr>';

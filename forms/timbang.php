@@ -80,9 +80,9 @@
                                     <?php
                                     include("koneksi.php");
                                     // Query SQL dengan INNER JOIN untuk mengambil data penimbangan anak
-                                    $sql = "SELECT tbl_penimbangan.*, tbl_anak.nama_anak 
-                FROM tbl_penimbangan
-                INNER JOIN tbl_anak ON tbl_penimbangan.id_anak = tbl_anak.id_anak";
+                                    $sql = "SELECT penimbangan.*, tbl_anak.nama_anak 
+                FROM penimbangan
+                INNER JOIN tbl_anak ON penimbangan.id_anak = tbl_anak.id_anak";
 
                                     $result = $koneksi->query($sql);
 

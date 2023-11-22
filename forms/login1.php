@@ -36,14 +36,16 @@
             </style>
             <div class="wrap-login100">
                 <div class="login100-pic js-tilt" data-tilt>
-                    <img src="sarjono.png" alt="IMG" style="margin-left: 10%; width: 900%; height: 90%; margin-top: -20%;">
+                    <img src="sarjono.png" alt="IMG" style="margin-left: 10%; width: 110%; height: 90%; margin-top: -20%;">
                 </div>
                 <form name="loginForm" class="login100-form validate-form" action="login.php" method="POST" onsubmit="return validateForm()">
                     <span class="login100-form-title">
                         Login Kader
-                        <div style="border: solid 1px #eee; margin-top: 15px; padding: 5px 10px 0px 10px">
-                    <marquee style="" onmouseover="this.stop();" onmouseout="this.start();"><h3 style="margin-top: 0; margin-bottom: 0">Selamat Datang di Website Sistem informasi Posyandu Balita</h3></marquee>
-		        </div>
+                        <div style=" margin-top: 15px; padding: 5px 10px 0px 10px">
+                            <marquee style="" onmouseover="this.stop();" onmouseout="this.start();">
+                                <h3 style="margin-top: 0; margin-bottom: 0">Selamat Datang di Website Sistem informasi Posyandu Balita</h3>
+                            </marquee>
+                        </div>
                     </span>
                     <div class="wrap-input100 validate-input" data-validate="">
                         <input class="input100" type="text" name="nama_kader" placeholder="Nama Kader">
