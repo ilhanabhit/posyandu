@@ -1,40 +1,28 @@
 <?php
 include("koneksi.php");
-// require_once("id.php");
 
-// $getter = new id();
-// $kader = $getter->getIdKader();
 session_start();
 $kader = $_SESSION['id_kader'];
 
 // Periksa apakah $id_kader memiliki nilai sebelum menjalankan query
 
-    // Query SQL untuk mengambil data dari tabel kader
-    $sql = "SELECT * FROM `tbl_kader` WHERE id_kader ='$kader'";
-    
-    $result = $koneksi->query($sql);
+// Query SQL untuk mengambil data dari tabel kader
+$sql = "SELECT * FROM `tbl_kader` WHERE id_kader ='$kader'";
+$result = $koneksi->query($sql);
 
-    if ($result->num_rows > 0) {
-        // while ($row = $result->fetch_assoc()) {
-            // Mendeklarasikan variabel dengan nilai yang diambil dari database
-            $row = $result->fetch_assoc();
-            $id = $row["id_kader"];
-            $nama = $row["nama_kader"];
-            $tanggal = $row["tgl_lahir"];
-            $alamat = $row["alamat"];
-            $jabatan = $row["jabatan"];
-            $tugas = $row["tugas_pokok"];
-            $password = $row["kata_sandi"];
-            $no_telp = $row["no_telp"];
-        // }
-    } else {
-        echo "Tidak ada data kader yang ditemukan.";
-    }
-
-
-
-// include('koneksi.php');
-// include('login.php');
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $id = $row["id_kader"];
+    $nama = $row["nama_kader"];
+    $tanggal = $row["tgl_lahir"];
+    $alamat = $row["alamat"];
+    $jabatan = $row["jabatan"];
+    $tugas = $row["tugas_pokok"];
+    $hashed_password_db = $row["kata_sandi"]; // Retrieve the hashed password
+    $no_telp = $row["no_telp"];
+} else {
+    echo "Tidak ada data kader yang ditemukan.";
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Mendapatkan data yang akan diperbarui dari formulir
@@ -44,33 +32,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $alamatToUpdate = $_POST['alamat'];
     $jabatanToUpdate = $_POST['jabatan'];
     $tugasPokokToUpdate = $_POST['tugas_pokok'];
-    $passswordToUpdate = $_POST['password'];
-    $notelpToUpdate = $_POST["no_telp"];
+    $passwordToUpdate = isset($_POST['password']) ? $_POST['password'] : '';
+    $noTelpToUpdate = $_POST["no_telp"];
 
-    // Query SQL UPDATE untuk memperbarui data kader
-    $sqlUpdate = "UPDATE tbl_kader SET 
-                                        nama_kader = '$namaKaderToUpdate',
-                                        tgl_lahir = '$tanggalLahirToUpdate',
-                                        alamat = '$alamatToUpdate',
-                                        jabatan = '$jabatanToUpdate',
-                                        tugas_pokok = '$tugasPokokToUpdate',
-                                        kata_sandi = '$passswordToUpdate',
-                                        no_telp = '$notelpToUpdate'
-                                        WHERE id_kader = $idKaderToUpdate";
+    // Verify the entered password with the hashed password stored in the database
+    if (isset($passwordToUpdate) && password_verify($passwordToUpdate, $hashed_password_db)) {
+        // Password verification successful, proceed with the update
 
-    if ($koneksi->query($sqlUpdate) === TRUE) {
-        // echo "Data kader berhasil diperbarui.";
-        // header('location : profil.php');
-        echo '<script>
-                                        alert(" Data Berhasil Diperbaharui");
-                                        window.location.href = "profil.php";
-                                        </script>';
+        // Query SQL UPDATE untuk memperbarui data kader
+        $sqlUpdate = "UPDATE tbl_kader SET 
+                        nama_kader = '$namaKaderToUpdate',
+                        tgl_lahir = '$tanggalLahirToUpdate',
+                        alamat = '$alamatToUpdate',
+                        jabatan = '$jabatanToUpdate',
+                        tugas_pokok = '$tugasPokokToUpdate',
+                        kata_sandi = '$passwordToUpdate',
+                        no_telp = '$noTelpToUpdate'
+                    WHERE id_kader = $idKaderToUpdate";
+
+        if ($koneksi->query($sqlUpdate) === TRUE) {
+            echo '<script>
+                alert(" Data Berhasil Diperbaharui");
+                window.location.href = "profil.php";
+                </script>';
+        } else {
+            echo "Terjadi kesalahan saat memperbarui data: " . $koneksi->error;
+        }
     } else {
-        echo "Terjadi kesalahan saat memperbarui data: " . $koneksi->error;
+        echo '<script>
+            alert("Password yang dimasukkan tidak sesuai.");
+            window.location.href = "profil.php";
+            </script>';
     }
 }
-
 ?>
+
 
 
 <!DOCTYPE html>
@@ -151,7 +147,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     </div>
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="password">password</label>
-                                        <input class="form-control" id="password" type="text" placeholder="password anda" value="<?php echo $password; ?>" name="password">
+                                        <input class="form-control" id="password" type="text" placeholder="password anda" value="<?php echo $hashed_password_db; ?>" name="password">
                                     </div>
                                 </div>
                                 <div class="row gx-3 mb-3">

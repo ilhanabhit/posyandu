@@ -62,7 +62,7 @@
                                         <th>Jabatan</th>
                                         <th>Tugas Pokok</th>
                                         <th>No. Telepon</th>
-                                        <th>Kata Sandi</th>
+                                        
                                         <th>Foto Kader</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -76,7 +76,7 @@
                                         <th>Jabatan</th>
                                         <th>Tugas Pokok</th>
                                         <th>No. Telepon</th>
-                                        <th>Kata Sandi</th>
+                                        
                                         <th>Foto Kader</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -100,7 +100,7 @@
                                             $tugas_pokok = $row['tugas_pokok'];
                                             $no_telp = $row['no_telp'];
                                             $img_kader = $row['img_kader'];
-                                            $password = $row['kata_sandi'];
+                                            
 
                                             echo '<tr>';
                                             echo '<td>' . $id_kader . '</td>';
@@ -110,7 +110,7 @@
                                             echo '<td>' . $jabatan . '</td>';
                                             echo '<td>' . $tugas_pokok . '</td>';
                                             echo '<td>' . $no_telp . '</td>';
-                                            echo '<td>' . $password . '</td>';
+                                            
                                             echo '<td><img src="berkas/team/' . $img_kader . '" alt="Foto Kader" width="50" height="50"></td>';
                                             echo '<td>';
                                             echo '<a href="#editEmployeeModal-' . $id_kader . '" class="edit" data-toggle="modal" data-target="#editEmployeeModal-' . $id_kader . '"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>';
@@ -154,10 +154,6 @@
                                   <div class='form-group'>
                                       <label for='no_telp-" . $row["id_kader"] . "'>No.Telepon</label>
                                       <input type='text' class='form-control' id='no_telp-" . $row["id_kader"] . "' name='no_telp' value='" . $row["no_telp"] . "' required>
-                                  </div>
-                                  <div class='form-group'>
-                                      <label for='kata_sandi-" . $row["id_kader"] . "'>Tugas Pokok</label>
-                                      <input type='text' class='form-control' id='kata_sandi-" . $row["id_kader"] . "' name='kata_sandi' value='" . $row["kata_sandi"] . "' required>
                                   </div>
                               </div>
                               <div class='modal-footer'>

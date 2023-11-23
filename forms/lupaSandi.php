@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>Lupa Kata Sandi - SIDuta</title>
 	<meta charset="UTF-8">
@@ -12,7 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-	
+
 </head>
 
 <body>
@@ -56,15 +57,15 @@
 							<i class="fa fa-phone" aria-hidden="true"></i>
 						</span>
 					</div>
-          <div class="wrap-input100 validate-input" data-validate="Password is required">
+					<div class="wrap-input100 validate-input" data-validate="Password is required">
 						<input class="input100" type="password" name="kata_sandi" placeholder="Kata Sandi Baru">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
-          <div class="wrap-input100 validate-input" data-validate="Password is required">
-						<input class="input100" type="password" name="kata_sandi" placeholder="Konfirmasi Kata Sandi">
+					<div class="wrap-input100 validate-input" data-validate="Password is required">
+						<input class="input100" type="password" name="konfirmasi_kata_sandi" id="konfirmasi_kata_sandi" placeholder="Konfirmasi Kata Sandi">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -100,6 +101,23 @@
 	</script>
 	<!--===============================================================================================-->
 	<script src="js/main.js"></script>
+	<script>
+    function validateForm() {
+        var newPassword = document.getElementById('kata_sandi').value;
+        var confirmPassword = document.getElementById('konfirmasi_kata_sandi').value;
+
+        // Check if the new password and confirmation match
+        if (newPassword !== confirmPassword) {
+            alert('Konfirmasi Kata Sandi tidak sesuai dengan Kata Sandi Baru.');
+            return false;
+        }
+
+        // Your other form validation logic can go here
+
+        // If all validations pass, submit the form
+        return true;
+    }
+</script>
 </body>
 
 </html>
