@@ -36,3 +36,4 @@ if (isset($_POST["submit"])) {
 
 // Tutup koneksi database
 $koneksi->close();
+?>

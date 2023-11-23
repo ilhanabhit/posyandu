@@ -22,7 +22,7 @@
     <script src="crud.js"></script>
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
-<body style="height: 150%; width: 100%;">
+<body style="height: max-content;width: -webkit-fill-available;">
 <div class="wrapper d-flex align-items-stretch">
     <!-- Sidebar -->
     <?php include 'navbar.php'; ?>

@@ -23,7 +23,7 @@
 
 </head>
 
-<body style="height: max-content;">
+<body style="height: max-content;width: -webkit-fill-available;">
     <div class="wrapper d-flex align-items-stretch">
         <!-- navbar -->
         <?php include 'navbar.php'; ?>
@@ -38,7 +38,7 @@
                         <li class="breadcrumb-item active">Data Kader Posyandu</li>
                     </ol>
                     <div class="card mb-4">
-                    <div class="card-header" style="font-size: 18px;">
+                        <div class="card-header" style="font-size: 18px;">
                             <i class="fas fa-table me-1" style="margin-top: 8px;"></i>
                             Data Kader
                             <style>
@@ -61,6 +61,8 @@
                                         <th>Alamat</th>
                                         <th>Jabatan</th>
                                         <th>Tugas Pokok</th>
+                                        <th>No. Telepon</th>
+                                        <th>Kata Sandi</th>
                                         <th>Foto Kader</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -73,6 +75,8 @@
                                         <th>Alamat</th>
                                         <th>Jabatan</th>
                                         <th>Tugas Pokok</th>
+                                        <th>No. Telepon</th>
+                                        <th>Kata Sandi</th>
                                         <th>Foto Kader</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -94,7 +98,9 @@
                                             $alamat = $row['alamat'];
                                             $jabatan = $row['jabatan'];
                                             $tugas_pokok = $row['tugas_pokok'];
+                                            $no_telp = $row['no_telp'];
                                             $img_kader = $row['img_kader'];
+                                            $password = $row['kata_sandi'];
 
                                             echo '<tr>';
                                             echo '<td>' . $id_kader . '</td>';
@@ -103,6 +109,8 @@
                                             echo '<td>' . $alamat . '</td>';
                                             echo '<td>' . $jabatan . '</td>';
                                             echo '<td>' . $tugas_pokok . '</td>';
+                                            echo '<td>' . $no_telp . '</td>';
+                                            echo '<td>' . $password . '</td>';
                                             echo '<td><img src="berkas/team/' . $img_kader . '" alt="Foto Kader" width="50" height="50"></td>';
                                             echo '<td>';
                                             echo '<a href="#editEmployeeModal-' . $id_kader . '" class="edit" data-toggle="modal" data-target="#editEmployeeModal-' . $id_kader . '"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>';
@@ -143,6 +151,14 @@
                                       <label for='tugas-pokok-" . $row["id_kader"] . "'>Tugas Pokok</label>
                                       <input type='text' class='form-control' id='tugas-pokok-" . $row["id_kader"] . "' name='tugas-pokok' value='" . $row["tugas_pokok"] . "' required>
                                   </div>
+                                  <div class='form-group'>
+                                      <label for='no_telp-" . $row["id_kader"] . "'>No.Telepon</label>
+                                      <input type='text' class='form-control' id='no_telp-" . $row["id_kader"] . "' name='no_telp' value='" . $row["no_telp"] . "' required>
+                                  </div>
+                                  <div class='form-group'>
+                                      <label for='kata_sandi-" . $row["id_kader"] . "'>Tugas Pokok</label>
+                                      <input type='text' class='form-control' id='kata_sandi-" . $row["id_kader"] . "' name='kata_sandi' value='" . $row["kata_sandi"] . "' required>
+                                  </div>
                               </div>
                               <div class='modal-footer'>
                                   <input type='button' class='btn btn-default' data-dismiss='modal' value='Batal'>
@@ -173,7 +189,7 @@
                                             <div class="modal-body">
                                                 <div class="form-group">
                                                     <label for="nik">NIK Kader</label>
-                                                    <input type="text" id="id_kader" name="id_kader" class="form-control" required>
+                                                    <input type="number" id="id_kader" name="id_kader" class="form-control" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="nama">Nama Kader</label>
@@ -189,11 +205,25 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="jabatan">Jabatan</label>
-                                                    <input type="text" id="jabatan" name="jabatan" class="form-control" required>
+                                                    <select id="jabatan" name="jabatan" class="form-control" required>
+                                                        <option value="" selected disabled>Pilih Jabatan</option>
+                                                        <option value="Ketua">Ketua</option>
+                                                        <option value="Bendahara">Bendahara</option>
+                                                        <option value="Sekretaris">Sekretaris</option>
+                                                        <option value="Anggota">Anggota</option>
+                                                    </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="tugas-pokok">Tugas Pokok</label>
                                                     <input type="text" id="tugas_pokok" name="tugas_pokok" class="form-control" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="no_telp">No.Telepon</label>
+                                                    <input type="number" id="no_telp" name="no_telp" class="form-control" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="kata_sandi">Kata Sandi</label>
+                                                    <input type="text" id="kata_sandi" name="kata_sandi" class="form-control" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="img-kader">Foto Kader</label>

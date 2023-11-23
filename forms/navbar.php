@@ -34,7 +34,7 @@
                     <a href="kader.php"><span class="fa fa-users mr-3"></span>Data Kader</a>
                 </li>
                 <li>
-                    <a href="jadwal.php"><span class="fa fa-calendar mr-3"></span>jadwal</a>
+                    <a href="jadwal.php"><span class="fa fa-calendar mr-3"></span>Jadwal</a>
                 </li>
                 <li>
                     <a href="artikel.php"><span class="fa fa-newspaper mr-3"></span>Artikel</a>

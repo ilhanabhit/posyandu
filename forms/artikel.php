@@ -23,7 +23,7 @@
 
 </head>
 
-<body style="height: max-content; width: 100%;" >
+<body style="height: max-content;width: -webkit-fill-available;" >
     <div class="wrapper d-flex align-items-stretch">
         <!-- Sidebar -->
         <?php include 'navbar.php'; ?>
@@ -153,11 +153,11 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="isi_artikel">Deskripsi</label>
-                                                    <textarea class="form-control" id="isi_artikel" name="isi_artikel" required style="border-color: black;"></textarea>
+                                                    <textarea class="form-control" id="isi_artikel" name="isi_artikel" required style="border-color: black; border: 1px solid black;"></textarea>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="id_kader">Nama Kader</label>
-                                                    <select class="form-control" id="id_kader" name="id_kader" required style="border-color: black;">
+                                                    <select class="form-control" id="id_kader" name="id_kader" required style="border-color: black; border :1px solid black;">
                                                         <?php
                                                         // Sisipkan file koneksi.php
                                                         include('koneksi.php');
