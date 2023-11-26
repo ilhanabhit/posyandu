@@ -361,73 +361,71 @@
 
     <!-- ==== Artikel ==== -->
     <section id="artikel" class="artikel">
-      <div class="container">
-        <style>
-          .artikel-container {
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            width: 100%;
-            /* Ensure the container takes the full width of its parent */
-            padding-bottom: 20px;
-            /* Add some bottom padding to give space for the scrollbar */
-          }
+  <div class="container">
+    <style>
+      .artikel-container {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        width: 100%;
+        padding-bottom: 20px;
+        white-space: nowrap; /* Prevent items from wrapping to the next line */
+      }
 
-          /* Ensure each article item has a minimum width and is flexible */
-          .artikel-item {
-            width: 30%;
-            height: 50%;
-            flex: 0 0 auto;
-            /* Let the items be of their original size */
-            background-color: #ffbb2c;
-            text-align: center;
-            border: 1px solid #ddd;
-            min-width: 255px;
-          }
+      .artikel-item {
+        width: 30%;
+        height: 50%;
+        flex: 0 0 auto;
+        background-color: #ffbb2c;
+        text-align: center;
+        border: 1px solid #ddd;
+        min-width: 255px;
+        box-sizing: border-box;
+      }
 
-          /* Adjustments to make the content scrollable */
-          .artikel-info {
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-          }
+      .artikel-info {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
-          .judul-artikel {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            /* Add some space between title and date */
-          }
+      .judul-artikel {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
 
-          .tgl-dibuat {
-            font-size: 12px;
-            margin-bottom: 10px;
-            /* Add some space between date and content */
-          }
+      .tgl-dibuat {
+        font-size: 12px;
+        margin-bottom: 10px;
+      }
 
-          .isi-artikel {
-            max-height: 120px;
-            overflow-y: auto;
-            /* Enable vertical scrolling for content */
-            padding: 6px;
-            border: 0px;
-            word-wrap: break-word;
-            white-space: normal;
-            text-align: justify;
-          }
+      .isi-artikel {
+        max-height: 120px;
+        overflow-y: auto;
+        padding: 6px;
+        border: 0px;
+        word-wrap: break-word;
+        white-space: normal;
+        text-align: justify;
+      }
 
-          .artikel-img {
-            width: 30%;
-            height: 50%;
-          }
-        </style>
+      .artikel-img {
+        width: 30%;
+        height: 50%;
+      }
+    </style>
 
-        <div class="section-title" data-aos="fade-up">
-          <h2>Artikel</h2>
-          <p>Baca Artikel Kami</p>
-        </div>
-        <div class="artikel-container">
+    <div class="section-title" data-aos="fade-up">
+      <h2>Artikel</h2>
+      <p>Baca Artikel Kami</p>
+    </div>
+    <div class="artikel-container">
+      <!-- Repeat the following block for each artikel-item -->
+      <!-- Repeat the above block for each artikel-item -->
+
+    
           <?php
           include('koneksi.php');
 
@@ -512,12 +510,12 @@
 
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
+                <img src="assets/img/joko1.jpg" class="testimonial-img" alt="">
+                <h3>Joko Widodo</h3>
+                <h4>Presiden RI</h4>
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                  Jokowi beri biskuit untuk cegah stunting, Kementerian Kesehatan atau Kemenkes
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
               </div>
@@ -525,43 +523,16 @@
 
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
+                <img src="assets/img/muha.jpg" class="testimonial-img" alt="">
+                <h3>Muhadjir Effendy</h3>
+                <h4>Menteri Koordinator Bidang Pembangunan Manusia dan Kebudayaan Republik Indonesia</h4>
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                  Posyandu dapat melakukan deteksi dini terkait tumbuh kembang anak dan memantau kondisi kesehatan
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
               </div>
             </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
           </div>
           <div class="swiper-pagination"></div>
         </div>
