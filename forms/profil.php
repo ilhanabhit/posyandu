@@ -67,8 +67,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -149,7 +147,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <label class="small mb-1" for="password">password</label>
                                         <input class="form-control" id="password" type="text" placeholder="password anda" value="<?php echo $hashed_password_db; ?>" name="password">
                                     </div>
-                                </div>
+                                </div>  
+
                                 <div class="row gx-3 mb-3">
                                     <!-- Form Group (email address)-->
                                     <div class="col-md-6">
