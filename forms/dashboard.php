@@ -23,7 +23,7 @@
 
 </head>
 
-<body style="height: max-content;">
+<body style="height: max-content; width: 100%;">
     <div class="wrapper d-flex align-items-stretch">
         <!-- navbar -->
         <?php include 'navbar.php'; ?>
