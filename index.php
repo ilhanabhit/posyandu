@@ -360,59 +360,60 @@
     <!-- ==== Artikel ==== -->
     <section id="artikel" class="artikel">
       <div class="container">
-      <style>
-  .artikel-container {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    width: 100%;
-    min-width: 600px; /* Adjust the minimum width as needed */
-    padding-bottom: 20px;
-  }
+        <style>
+          .artikel-container {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            width: 100%;
+            min-width: 600px;
+            /* Adjust the minimum width as needed */
+            padding-bottom: 20px;
+          }
 
-  .artikel-item {
-    width: 30%;
-    height: 330px;
-    flex: 0 0 auto;
-    background-color: #ffbb2c;
-    text-align: center;
-    border: 1px solid #ddd;
-    min-width: 255px;
-    box-sizing: border-box;
-  }
+          .artikel-item {
+            width: 30%;
+            height: 330px;
+            flex: 0 0 auto;
+            background-color: #ffbb2c;
+            text-align: center;
+            border: 1px solid #ddd;
+            min-width: 255px;
+            box-sizing: border-box;
+          }
 
-  .artikel-info {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+          .artikel-info {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
 
-  .judul-artikel {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
+          .judul-artikel {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+          }
 
-  .tgl-dibuat {
-    font-size: 15px;
-    margin-bottom: 10px;
-  }
+          .tgl-dibuat {
+            font-size: 15px;
+            margin-bottom: 10px;
+          }
 
-  .isi-artikel {
-    padding: 6px;
-    border: 0px;
-    word-wrap: break-word;
-    white-space: normal;
-    display: block;
-  }
+          .isi-artikel {
+            padding: 6px;
+            border: 0px;
+            word-wrap: break-word;
+            white-space: normal;
+            display: block;
+          }
 
-  .artikel-img {
-    width: 30%;
-    height: 300px;
-    padding-top: 20px;
-  }
-</style>
+          .artikel-img {
+            width: 30%;
+            height: 300px;
+            padding-top: 20px;
+          }
+        </style>
 
 
 
