@@ -357,75 +357,71 @@
     </section>
     <!-- End Details Section -->
 
-
-
     <!-- ==== Artikel ==== -->
     <section id="artikel" class="artikel">
-  <div class="container">
-    <style>
-      .artikel-container {
-        display: flex;
-        gap: 20px;
-        overflow-x: auto;
-        width: 100%;
-        padding-bottom: 20px;
-        white-space: nowrap; /* Prevent items from wrapping to the next line */
-      }
+      <div class="container">
+        <style>
+          .artikel-container {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            width: 100%;
+            padding-bottom: 20px;
+          }
 
-      .artikel-item {
-        width: 30%;
-        height: 50%;
-        flex: 0 0 auto;
-        background-color: #ffbb2c;
-        text-align: center;
-        border: 1px solid #ddd;
-        min-width: 255px;
-        box-sizing: border-box;
-      }
+          .artikel-item {
+            width: 30%;
+            height: 50%;
+            flex: 0 0 auto;
+            background-color: #ffbb2c;
+            text-align: center;
+            border: 1px solid #ddd;
+            min-width: 255px;
+            box-sizing: border-box;
+          }
 
-      .artikel-info {
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
+          .artikel-info {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
 
-      .judul-artikel {
-        font-size: 16px;
-        font-weight: bold;
-        margin-bottom: 10px;
-      }
+          .judul-artikel {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+          }
 
-      .tgl-dibuat {
-        font-size: 12px;
-        margin-bottom: 10px;
-      }
+          .tgl-dibuat {
+            font-size: 15 px;
+            margin-bottom: 10px;
+          }
 
-      .isi-artikel {
-        max-height: 120px;
-        overflow-y: auto;
-        padding: 6px;
-        border: 0px;
-        word-wrap: break-word;
-        white-space: normal;
-        text-align: justify;
-      }
+          .isi-artikel {
+            padding: 6px;
+            border: 0px;
+            word-wrap: break-word;
+            white-space: normal;
+            display: block;
+            /* Ensures the content is displayed as a block element */
+          }
 
-      .artikel-img {
-        width: 30%;
-        height: 50%;
-      }
-    </style>
+          .artikel-img {
+            width: 30%;
+            height: 25%;
+          }
+        </style>
 
-    <div class="section-title" data-aos="fade-up">
-      <h2>Artikel</h2>
-      <p>Baca Artikel Kami</p>
-    </div>
-    <div class="artikel-container">
-      <!-- Repeat the following block for each artikel-item -->
-      <!-- Repeat the above block for each artikel-item -->
+        <div class="section-title" data-aos="fade-up">
+          <h2>Artikel</h2>
+          <p>Baca Artikel Kami</p>
+        </div>
+        <div class="artikel-container">
+          <!-- Repeat the following block for each artikel-item -->
+          <!-- Repeat the above block for each artikel-item -->
 
-    
+
           <?php
           include('koneksi.php');
 
