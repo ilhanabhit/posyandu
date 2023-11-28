@@ -59,7 +59,8 @@
           <li><a class="nav-link scrollto" href="#artikel">Artikel</a></li>
           <li><a class="nav-link scrollto" href="#team">Kader</a></li>
           <li><a class="nav-link scrollto" href="#footer">Kontak</a></li>
-          <li><a class="nav-link scrollto" href="forms/login1.php" style="color: yellow;">Masuk</a></li>
+          <li><a class="nav-link scrollto" href="forms/login1.php" style="color: white; border: 3px solid #1acc8d; border-radius: 10px; padding: 5px; margin-left: 10px; background-color: #1acc8d;">Masuk</a></li>
+
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
