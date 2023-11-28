@@ -184,27 +184,27 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="umur_anak" style="font-size: 15px;">Umur Bayi (bulan)</label>
-                                                    <select id="umur_anak" name="umur_anak" style="font-size: 13px;" class="form-control" required>
+                                                    <select id="umur_anak" name="umur_anak" style="font-size: 13px;" class="form-control" required style="border-color: black; border :1px solid black;">
                                                         <!-- Options will be filled dynamically using JavaScript -->
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="jenis_imunisasi" style="font-size: 15px;">Jenis Imunisasi</label>
-                                                    <select id="jenis_imunisasi" name="jenis_imunisasi" style="font-size: 13px;" class="form-control" required>
+                                                    <select id="jenis_imunisasi" name="jenis_imunisasi" style="font-size: 13px;" class="form-control" required style="border-color: black; border :1px solid black;">
                                                         <!-- Pilihan vaksin akan diisi secara dinamis menggunakan JavaScript -->
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="tanggal_imun_timbang" style="font-size: 15px;">Tanggal Imunisasi dan Penimbangan</label>
-                                                    <input type="date" id="tanggal_imun_timbang" name="tanggal_imun_timbang" style="font-size: 13px;" class="form-control" required>
+                                                    <input type="date" id="tanggal_imun_timbang" name="tanggal_imun_timbang" style="font-size: 13px;" class="form-control" required style="border-color: black; border :1px solid black;">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="tempat" style="font-size: 15px;">Tempat Posyandu</label>
-                                                    <input type="text" id="tempat" name="tempat" style="font-size: 13px;" class="form-control" required>
+                                                    <input type="text" id="tempat" name="tempat" style="font-size: 13px;" class="form-control" required style="border-color: black; border :1px solid black;">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="jam_posyandu" style="font-size: 15px;">Jam Posyandu</label>
-                                                    <input type="text" id="jam_posyandu" name="jam_posyandu" style="font-size: 13px;" class="form-control" required value="09:00">
+                                                    <input type="text" id="jam_posyandu" name="jam_posyandu" style="font-size: 13px;" class="form-control" required style="border-color: black; border :1px solid black;" value="09:00">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">

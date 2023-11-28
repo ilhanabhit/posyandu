@@ -159,7 +159,7 @@
                                             <div class="modal-body">
                                                 <div class="form-group">
                                                     <label for="id_anak">Pilih Anak</label>
-                                                    <select id="id_anak" name="id_anak" class="form-control" required>
+                                                    <select id="id_anak" name="id_anak" class="form-control" required style="border-color: black; border :1px solid black;">
                                                         <?php
                                                         include("koneksi.php");
                                                         $sql = "SELECT id_anak, nama_anak FROM tbl_anak";
@@ -172,15 +172,15 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="tgl_penimbangan">Tanggal Penimbangan</label>
-                                                    <input type="date" id="tgl_penimbangan" name="tgl_penimbangan" class="form-control" required>
+                                                    <input type="date" id="tgl_penimbangan" name="tgl_penimbangan" class="form-control" required style="border-color: black; border :1px solid black;">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="berat_badan">Berat Badan</label>
-                                                    <input type="number" step="0.01" id="berat_badan" name="berat_badan" class="form-control" required>
+                                                    <input type="number" step="0.01" id="berat_badan" name="berat_badan" class="form-control" required style="border-color: black; border :1px solid black;">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="tinggi_badan">Tinggi Badan</label>
-                                                    <input type="number" step="0.01" id="tinggi_badan" name="tinggi_badan" class="form-control" required>
+                                                    <input type="number" step="0.01" id="tinggi_badan" name="tinggi_badan" class="form-control" required style="border-color: black; border :1px solid black;">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">

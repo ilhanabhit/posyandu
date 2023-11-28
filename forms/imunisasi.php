@@ -149,7 +149,7 @@
                                             <div class="modal-body">
                                                 <div class="form-group">
                                                     <label for="id_anak">Pilih Anak</label>
-                                                    <select id="id_anak" name="id_anak" class="form-control" required>
+                                                    <select id="id_anak" name="id_anak" class="form-control" required style="border-color: black; border :1px solid black;">
                                                         <?php
                                                         include("koneksi.php");
                                                         $sql = "SELECT id_anak, nama_anak FROM tbl_anak";
@@ -162,18 +162,18 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="tgl_imunisasi">Tanggal Imunisasi</label>
-                                                    <input type="date" id="tgl_imunisasi" name="tgl_imunisasi" class="form-control" required>
+                                                    <input type="date" id="tgl_imunisasi" name="tgl_imunisasi" class="form-control" required style="border-color: black; border :1px solid black;">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="jenis_imunisasi" style="font-size: 15px;">Jenis Imunisasi</label>
-                                                    <select id="jenis_imunisasi" name="jenis_imunisasi" style="font-size: 13px;" class="form-control" required>
+                                                    <select id="jenis_imunisasi" name="jenis_imunisasi" style="font-size: 13px;" class="form-control" required style="border-color: black; border :1px solid black;">
                                                         <!-- Options will be dynamically added here using JavaScript -->
                                                     </select>
                                                 </div>
 
                                                 <script>
                                                     // Get the select element
-                                                    var jenisImunisasiSelect = document.getElementById("jenis_imunisasi");
+                                                    var jenisImunisasiSelect = document.getElementById("jenis_imunisasi") ;
 
                                                     // Array of options
                                                     var options = [

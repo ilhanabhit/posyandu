@@ -185,23 +185,23 @@
                                             <div class="modal-body">
                                                 <div class="form-group">
                                                     <label for="nik">NIK Kader</label>
-                                                    <input type="number" id="id_kader" name="id_kader" class="form-control" required>
+                                                    <input type="number" id="id_kader" name="id_kader" class="form-control" required style="border-color: black; border :1px solid black;">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="nama">Nama Kader</label>
-                                                    <input type="text" id="nama_kader" name="nama_kader" class="form-control" required>
+                                                    <input type="text" id="nama_kader" name="nama_kader" class="form-control" required style="border-color: black; border :1px solid black;">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="tanggal-lahir">Tanggal Lahir</label>
-                                                    <input type="date" id="tgl_lahir" name="tgl_lahir" class="form-control" required>
+                                                    <input type="date" id="tgl_lahir" name="tgl_lahir" class="form-control" required style="border-color: black; border :1px solid black;">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="alamat">Alamat</label>
-                                                    <input type="text" id="alamat" name="alamat" class="form-control" required>
+                                                    <input type="text" id="alamat" name="alamat" class="form-control" required style="border-color: black; border :1px solid black;">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="jabatan">Jabatan</label>
-                                                    <select id="jabatan" name="jabatan" class="form-control" required>
+                                                    <select id="jabatan" name="jabatan" class="form-control" required style="border-color: black; border :1px solid black;">
                                                         <option value="" selected disabled>Pilih Jabatan</option>
                                                         <option value="Ketua">Ketua</option>
                                                         <option value="Bendahara">Bendahara</option>
@@ -211,19 +211,19 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="tugas-pokok">Tugas Pokok</label>
-                                                    <input type="text" id="tugas_pokok" name="tugas_pokok" class="form-control" required>
+                                                    <input type="text" id="tugas_pokok" name="tugas_pokok" class="form-control" required style="border-color: black; border :1px solid black;">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="no_telp">No.Telepon</label>
-                                                    <input type="number" id="no_telp" name="no_telp" class="form-control" required>
+                                                    <input type="number" id="no_telp" name="no_telp" class="form-control" required style="border-color: black; border :1px solid black;">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="kata_sandi">Kata Sandi</label>
-                                                    <input type="text" id="kata_sandi" name="kata_sandi" class="form-control" required>
+                                                    <input type="text" id="kata_sandi" name="kata_sandi" class="form-control" required style="border-color: black; border :1px solid black;">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="img-kader">Foto Kader</label>
-                                                    <input type="file" id="img_kader" name="img_kader" class="form-control" accept="image/*" required>
+                                                    <input type="file" id="img_kader" name="img_kader" class="form-control" accept="image/*" required style="border-color: black; border :1px solid black;">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">

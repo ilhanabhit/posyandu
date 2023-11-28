@@ -81,6 +81,7 @@
                             </tfoot>
                             <tbody>
                                 <!-- Tambahkan baris berikut ke dalam tabel tbody untuk menampilkan data -->
+                                
                                 <?php
                                 include("koneksi.php");
                                 // Query SQL dengan INNER JOIN
@@ -184,38 +185,38 @@
                                         <div class="modal-body">
                                             <div class="form-group">
                                                 <label for="nik">NIK Balita </label>
-                                                <input type="number" id="nik" name="nik" class="form-control" required>
+                                                <input type="number" id="nik" name="nik" class="form-control" required style="border-color: black; border :1px solid black;">
                                             </div>
                                             <div class="form-group">
                                                 <label for="nama">Nama Balita</label>
-                                                <input type="text" id="nama" name="nama" class="form-control" required>
+                                                <input type="text" id="nama" name="nama" class="form-control" required style="border-color: black; border :1px solid black;">
                                             </div>
                                             <div class="form-group">
                                                 <label for="jenis-kelamin">Jenis Kelamin</label>
-                                                <select id="jenis-kelamin" name="jenis-kelamin" class="form-control" required>
+                                                <select id="jenis-kelamin" name="jenis-kelamin" class="form-control" required style="border-color: black; border :1px solid black;">
                                                     <option value="laki-laki">Laki-laki</option>
                                                     <option value="perempuan">Perempuan</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
                                                 <label for="tanggal-lahir">Tanggal Lahir</label>
-                                                <input type="date" id="tanggal-lahir" name="tanggal-lahir" class="form-control" required>
+                                                <input type="date" id="tanggal-lahir" name="tanggal-lahir" class="form-control" required style="border-color: black; border :1px solid black;">
                                             </div>
                                             <div class="form-group">
                                                 <label for="bb-lahir">Berat Badan</label>
-                                                <input type="number" id="bb-lahir" name="bb-lahir" class="form-control" required>
+                                                <input type="number" id="bb-lahir" name="bb-lahir" class="form-control" required style="border-color: black; border :1px solid black;">
                                             </div>
                                             <div class="form-group">
                                                 <label for="tb-lahir">Tinggi Badan</label>
-                                                <input type="number" id="tb-lahir" name="tb-lahir" class="form-control" required>
+                                                <input type="number" id="tb-lahir" name="tb-lahir" class="form-control" required style="border-color: black; border :1px solid black;">
                                             </div>
                                             <div class="form-group">
                                                 <label for="alamat">Alamat</label>
-                                                <input type="text" id="alamat" name="alamat" class="form-control" required>
+                                                <input type="text" id="alamat" name="alamat" class="form-control" required style="border-color: black; border :1px solid black;">
                                             </div>
                                             <div class="form-group">
                                                 <label for="nama-ibu">Nama Ibu</label>
-                                                <select id="nama-ibu" name="nama-ibu" class="form-control" required>
+                                                <select id="nama-ibu" name="nama-ibu" class="form-control" required style="border-color: black; border :1px solid black;">
                                                     <option value="">Pilih Nama Ibu</option>
                                                     <?php
                                                     include('koneksi.php'); // Sisipkan file koneksi.php

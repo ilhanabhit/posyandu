@@ -174,11 +174,11 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="tgl_dibuat">Tanggal Dibuat</label>
-                                                    <input type="date" class="form-control" id="tgl_dibuat" name="tgl_dibuat" required>
+                                                    <input type="date" class="form-control" id="tgl_dibuat" name="tgl_dibuat" required style="border-color: black; border :1px solid black;">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="img_artikel">Gambar</label>
-                                                    <input type="file" class="form-control" id="img_artikel" name="img_artikel" required>
+                                                    <input type="file" class="form-control" id="img_artikel" name="img_artikel" required style="border-color: black; border :1px solid black;">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
