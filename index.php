@@ -23,7 +23,6 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -36,7 +35,6 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
-
 
 <body>
 
@@ -70,7 +68,6 @@
 
     </div>
   </header><!-- End Header -->
-
 
   <!-- ======= Hero Section ======= -->
   <section id="hero">
@@ -208,6 +205,7 @@
       </div>
     </section><!-- End Features Section -->
 
+
     <?php
     // Sisipkan file koneksi.php
     include('koneksi.php');
@@ -289,6 +287,7 @@
       </div>
     </section>
     <!-- End Counts Section -->
+
 
     <!-- ======= Details Section ======= -->
     <section id="details" class="details">
@@ -374,7 +373,7 @@
 
           .artikel-item {
             width: 30%;
-            height: 300px;
+            height: 330px;
             flex: 0 0 auto;
             background-color: #ffbb2c;
             text-align: center;
@@ -698,15 +697,16 @@
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
-  
+
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
 
   <script>
     $(document).ready(function() {
@@ -722,6 +722,7 @@
       });
     });
   </script>
+
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
