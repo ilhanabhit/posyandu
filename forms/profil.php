@@ -120,7 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     </div>
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="nama_kader">Nama Kader</label>
-                                        <input class="form-control" id="nama_kader" type="text" placeholder="Nama anda" value="<?php echo $nama; ?>" name="nama_kader" readonly name="nama_kader">
+                                        <input class="form-control" id="nama_kader" type="text" placeholder="Nama anda" value="<?php echo $nama; ?>" name="nama_kader" >
                                     </div>
                                 </div>
                                 <!-- Form Row        -->
