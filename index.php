@@ -410,7 +410,7 @@
 
           .artikel-img {
             width: 30%;
-            height: 100px;
+            height: 150px;
             padding-top: 20px;
           }
         </style>
