@@ -13,11 +13,11 @@ if (isset($_POST["submit"])) {
     $stmt->store_result();
 
     if ($stmt->num_rows == 1) {
-        $stmt->bind_result($id, $nama_kader_db, $hashed_password_db);
+        $stmt->bind_result($id, $nama_kader_db, $md5_password_db);
         $stmt->fetch();
 
-        // Verifying the entered password with the hashed password stored in the database
-        if (password_verify($password, $hashed_password_db)) {
+        // Verifying the entered password with the MD5 hashed password stored in the database
+        if (md5($password) == $md5_password_db) {
             // Password verification successful, proceed with login
             session_start();
             $_SESSION['id_kader'] = $id;

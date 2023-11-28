@@ -32,10 +32,10 @@ if (isset($_POST["submit"])) {
 
     if ($result->num_rows == 1) {
         // Kader ditemukan, Anda dapat melakukan perubahan kata sandi di sini
-        // Contoh: Update kata sandi kader
-        $hashed_password = password_hash($new_password, PASSWORD_DEFAULT); // Use a secure password hashing method
+        // Contoh: Update kata sandi kader dengan MD5
+        $md5_password = md5($new_password); // Use a more secure hashing method if possible
         $stmt_update = $koneksi->prepare("UPDATE tbl_kader SET kata_sandi = ? WHERE nama_kader = ?");
-        $stmt_update->bind_param("ss", $hashed_password, $nama_kader);
+        $stmt_update->bind_param("ss", $md5_password, $nama_kader);
 
         if ($stmt_update->execute()) {
             echo "<script type='text/javascript'>
