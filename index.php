@@ -374,7 +374,7 @@
 
           .artikel-item {
             width: 30%;
-            height: 330px;
+            height: 400px;
             flex: 0 0 auto;
             background-color: #ffbb2c;
             text-align: center;
@@ -410,9 +410,8 @@
           }
 
           .artikel-img {
-            width: 30%;
-            height: 150px;
-            padding-top: 20px;
+            width: 100%;
+            height: 200px;
           }
         </style>
 

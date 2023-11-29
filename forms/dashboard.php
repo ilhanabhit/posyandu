@@ -2,35 +2,35 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <link rel="icon" type="image/png" href="siduta.png" />
-    <title>Data Kader - SiDuta</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-    <link href="coba123.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="crud.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="crud.js"></script>
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<link rel="icon" type="image/png" href="siduta.png" />
+	<title>Data Kader - SiDuta</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+	<link href="coba123.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="crud.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="crud.js"></script>
+	<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body style="height: max-content;width: -webkit-fill-available;">
-    <div class="wrapper d-flex align-items-stretch">
-        <!-- navbar -->
-        <?php include 'navbar.php'; ?>
-        <!-- end navbar  -->
-        <!-- Page Content  -->
-        <div id="content" class="p-4 p-md-5 pt-5">
-        <main>
+	<div class="wrapper d-flex align-items-stretch">
+		<!-- navbar -->
+		<?php include 'navbar.php'; ?>
+		<!-- end navbar  -->
+		<!-- Page Content  -->
+		<div id="content" class="p-4 p-md-5 pt-5">
+			<main>
 				<div class="dashboard-container">
 					<h1>Dashboard</h1>
 					<div class="header-content">
@@ -200,11 +200,9 @@
 							</div>
 						</div>
 						<div class="row">
-
 							<!-- Area Chart -->
 							<div class="col-xl-8 col-lg-7">
-								<div class="card shadow mb-4" style="width: 750px;">
-									<!-- Card Header - Dropdown -->
+								<div class="card shadow mb-4" style="width: auto; overflow-x: auto; overflow-y: auto;">
 									<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 										<h6 class="m-0 font-weight-bold text-primary" style="font-size: 15px;">Tabel Data Balita</h6>
 										<div class="dropdown no-arrow">
@@ -212,7 +210,6 @@
 										</div>
 									</div>
 
-									
 									<style>
 										/* Custom table styles */
 										table {
@@ -252,57 +249,58 @@
 											/* Table cell border */
 										}
 									</style>
+
 									<div class="card-body">
 										<div class="table-responsive">
-											<table class="table">
-												<thead>
-													<tr>
-														<th>NIK Anak</th>
-														<th>Nama Anak</th>
-														<th>Jenis Kelamin</th>
-														<th>Tanggal Lahir</th>
-														<th>Berat Badan</th>
-														<th>Tinggi Badan</th>
-														<th>Alamat</th>
-														<th>Nama Ibu</th>
-													</tr>
-												</thead>
-												<tbody>
-											</table>
-											<!-- Wrap the table body in a separate div for scrolling -->
-											<div style="max-height: 300px; overflow-y: auto;">
+											<!-- Wrap the table in a div with overflow property -->
+											<div style="max-height: 400px; overflow-y: auto; overflow-x: hidden;">
 												<table class="table">
-													<!-- Tambahkan baris berikut ke dalam tabel tbody untuk menampilkan data -->
-													<?php
-													include("koneksi.php");
-													// Query SQL dengan INNER JOIN
-													$sql = "SELECT tbl_anak.*, tbl_orangtua.nama_ibu 
-                           								FROM tbl_anak
-                           								INNER JOIN tbl_orangtua ON tbl_anak.nik_ibu = tbl_orangtua.nik_ibu";
+													<thead>
+														<tr>
+															<th>NIK Anak</th>
+															<th>Nama Anak</th>
+															<th>Jenis Kelamin</th>
+															<th>Tanggal Lahir</th>
+															<th>Berat Badan</th>
+															<th>Tinggi Badan</th>
+															<th>Alamat</th>
+															<th>Nama Ibu</th>
+															<th>Nama Ayah</th>
+														</tr>
+													</thead>
+													<tbody>
+														<!-- Tambahkan baris berikut ke dalam tabel tbody untuk menampilkan data -->
+														<?php
+														include("koneksi.php");
+														// Query SQL dengan INNER JOIN
+														$sql = "SELECT tbl_anak.*, tbl_orangtua.nama_ibu, tbl_orangtua.nama_ayah 
+                                        FROM tbl_anak
+                                        INNER JOIN tbl_orangtua ON tbl_anak.nik_ibu = tbl_orangtua.nik_ibu";
 
-													$result = $koneksi->query($sql);
+														$result = $koneksi->query($sql);
 
-													if ($result->num_rows > 0) {
-														while ($row = $result->fetch_assoc()) {
-															// Tampilkan data anak dan nama ibu di dalam tabel
-															echo "<tr>";
-															echo "<th>" . $row["id_anak"] . "</th>";
-															echo "<th>" . $row["nama_anak"] . "</th>";
-															echo "<th>" . $row["jenis_kelamin"] . "</th>";
-															echo "<th>" . $row["tanggal_lahir_anak"] . "</th>";
-															echo "<th>" . $row["bb_lahir"] . "</th>";
-															echo "<th>" . $row["tb_lahir"] . "</th>";
-															echo "<th>" . $row["alamat"] . "</th>";
-															echo "<th>" . $row["nama_ibu"] . "</th>"; // Kolom nama ibu
-															echo "</tr>";
+														if ($result->num_rows > 0) {
+															while ($row = $result->fetch_assoc()) {
+																// Tampilkan data anak, nama ibu, dan nama ayah di dalam tabel
+																echo "<tr>";
+																echo "<td>" . $row["id_anak"] . "</td>";
+																echo "<td>" . $row["nama_anak"] . "</td>";
+																echo "<td>" . $row["jenis_kelamin"] . "</td>";
+																echo "<td>" . $row["tanggal_lahir_anak"] . "</td>";
+																echo "<td>" . $row["bb_lahir"] . "</td>";
+																echo "<td>" . $row["tb_lahir"] . "</td>";
+																echo "<td>" . $row["alamat"] . "</td>";
+																echo "<td>" . $row["nama_ibu"] . "</td>"; // Kolom nama ibu
+																echo "<td>" . $row["nama_ayah"] . "</td>"; // Kolom nama ayah
+																echo "</tr>";
+															}
+														} else {
+															echo "Tidak ada data anak.";
 														}
-													} else {
-														echo "Tidak ada data anak.";
-													}
 
-													// Tutup koneksi
-													$koneksi->close();
-													?>
+														// Tutup koneksi
+														$koneksi->close();
+														?>
 													</tbody>
 												</table>
 											</div>
@@ -310,16 +308,17 @@
 									</div>
 								</div>
 							</div>
+
 							<!-- Bar Chart -->
 							<div class="col-xl-4 col-lg-5">
-								<div class="card shadow mb-4 " style="height: 95%;">
-									<!-- Card Header - Dropdown -->
+								<div class="card shadow mb-4 " style="height: 95%; overflow: auto;">
 									<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 										<h6 class="m-0 font-weight-bold text-primary" style="font-size: 15px;">Grafik Balita</h6>
 										<div class="dropdown no-arrow">
 											<img src="ikon2jpg.jpg" alt="Calendar Icon" class="icon" style="width: 18px; height: 18px;">
 										</div>
 									</div>
+
 									<!-- Card Body -->
 									<?php
 									include('koneksi.php');
@@ -391,6 +390,8 @@
 									</div>
 								</div>
 							</div>
+						</div>
+					</div>
 			</main>
 		</div>
 	</div>

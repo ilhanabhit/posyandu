@@ -1,5 +1,6 @@
 <?php
 include("koneksi.php");
+
 // Ambil data dari form
 $nikAnak = $_POST['nik'];
 $namaAnak = $_POST['nama'];
@@ -8,10 +9,13 @@ $jenisKelamin = $_POST['jenis-kelamin'];
 $beratBadanLahir = $_POST['bb-lahir'];
 $tinggiBadanLahir = $_POST['tb-lahir'];
 $alamat = $_POST['alamat'];
-$namaIbu = $_POST['nama-ibu']; // Ambil nama ibu yang dipilih oleh pengguna dari input field
+$namaOrangtua = $_POST['nama-orangtua']; // Ambil nama ibu dan nama ayah yang dipilih oleh pengguna dari input field
+
+// Pisahkan nama ibu dan nama ayah
+list($namaIbu, $namaAyah) = explode('|', $namaOrangtua);
 
 // Query SQL untuk mencari ID ibu berdasarkan nama ibu yang dipilih
-$query = "SELECT nik_ibu FROM tbl_orangtua WHERE nama_ibu = '$namaIbu'";
+$query = "SELECT nik_ibu FROM tbl_orangtua WHERE nama_ibu = '$namaIbu' AND nama_ayah = '$namaAyah'";
 
 $result = $koneksi->query($query);
 
@@ -35,7 +39,7 @@ if ($result->num_rows > 0) {
     }
 } else {
     echo "<script type='text/javascript'>
-        alert('Nama ibu tidak ditemukan dalam database.');
+        alert('Nama ibu dan/atau nama ayah tidak ditemukan dalam database.');
         location.replace('anak.php');
         </script>";
 }
