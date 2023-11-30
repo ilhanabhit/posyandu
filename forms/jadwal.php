@@ -23,7 +23,7 @@
 
 </head>
 
-<body style="height: max-content; width: 100%;" >
+<body style="height: max-content; width: 100%;">
     <div class="wrapper d-flex align-items-stretch">
         <!-- Sidebar -->
         <?php include 'navbar.php'; ?>
@@ -199,18 +199,18 @@
                                                     <input type="date" id="tanggal_imun_timbang" name="tanggal_imun_timbang" style="font-size: 13px;" class="form-control" required style="border-color: black; border :1px solid black;">
                                                 </div>
                                                 <div class="form-group">
+                                                    <label for="jam_posyandu" style="font-size: 15px;">Jam Posyandu</label>
+                                                    <input type="text" id="jam_posyandu" name="jam_posyandu" style="font-size: 13px;" class="form-control" required value="09:00" readonly>
+                                                </div>
+                                                <div class="form-group">
                                                     <label for="tempat" style="font-size: 15px;">Tempat Posyandu</label>
                                                     <input type="text" id="tempat" name="tempat" style="font-size: 13px;" class="form-control" required style="border-color: black; border :1px solid black;">
                                                 </div>
-                                                <div class="form-group">
-                                                    <label for="jam_posyandu" style="font-size: 15px;">Jam Posyandu</label>
-                                                    <input type="text" id="jam_posyandu" name="jam_posyandu" style="font-size: 13px;" class="form-control" required style="border-color: black; border :1px solid black;" value="09:00">
+                                                
+                                                <div class="modal-footer" >
+                                                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Batal">
+                                                    <input type="submit" class="btn btn-success" value="Tambah">
                                                 </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Batal">
-                                                <input type="submit" class="btn btn-success" value="Tambah">
-                                            </div>
                                         </form>
                                     </div>
                                 </div>
