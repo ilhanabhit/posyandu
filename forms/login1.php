@@ -36,7 +36,7 @@
             </style>
             <a class="back-button" href="../index.php">
                 <div class="circle-icon">
-                    <i class="fa fa-arrow-left"></i>
+                    <i class="fa fa-arrow-left" style="color: #0205a1 ; padding-top: 10px;"></i>
                 </div>
             </a>
             <style>
