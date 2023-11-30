@@ -6,7 +6,7 @@ if (isset($_POST['Hapus'])) {
     $idToDelete = $_POST['idToDelete'];
 
     // Query DELETE untuk menghapus data anak berdasarkan ID anak
-    $sql = "DELETE FROM tbl_jadwal WHERE id_jadwal = '$idToDelete'";
+    $sql = "DELETE FROM jadwal WHERE id_jadwal = '$idToDelete'";
 
     if ($koneksi->query($sql) === TRUE) {
         echo "<script type='text/javascript'>

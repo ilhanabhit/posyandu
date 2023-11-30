@@ -32,11 +32,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $alamatToUpdate = $_POST['alamat'];
     $jabatanToUpdate = $_POST['jabatan'];
     $tugasPokokToUpdate = $_POST['tugas_pokok'];
-    $passwordToUpdate = isset($_POST['password']) ? $_POST['password'] : '';
+    // $passwordToUpdate = isset($_POST['password']) ? $_POST['password'] : '';
     $noTelpToUpdate = $_POST["no_telp"];
 
     // Verify the entered password with the hashed password stored in the database
-    if (isset($passwordToUpdate) && password_verify($passwordToUpdate, $hashed_password_db)) {
+    // if (isset($passwordToUpdate) && password_verify($passwordToUpdate, $hashed_password_db)) {
         // Password verification successful, proceed with the update
 
         // Query SQL UPDATE untuk memperbarui data kader
@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         alamat = '$alamatToUpdate',
                         jabatan = '$jabatanToUpdate',
                         tugas_pokok = '$tugasPokokToUpdate',
-                        kata_sandi = '$passwordToUpdate',
+                        -- kata_sandi = '$passwordToUpdate',
                         no_telp = '$noTelpToUpdate'
                     WHERE id_kader = $idKaderToUpdate";
 
@@ -59,12 +59,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Terjadi kesalahan saat memperbarui data: " . $koneksi->error;
         }
     } else {
-        echo '<script>
-            alert("Password yang dimasukkan tidak sesuai.");
-            window.location.href = "profil.php";
-            </script>';
+        // echo '<script>
+        //     alert("Password yang dimasukkan tidak sesuai.");
+        //     window.location.href = "profil.php";
+        //     </script>';
     }
-}
+// }
 ?>
 
 <!DOCTYPE html>
@@ -144,17 +144,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <input class="form-control" id="jabatan" type="text" placeholder="Jabatan anda" value="<?php echo $jabatan; ?>" name="jabatan">
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="small mb-1" for="password">password</label>
-                                        <input class="form-control" id="password" type="text" placeholder="password anda" value="<?php echo $hashed_password_db; ?>" name="password">
+                                        <label class="small mb-1" for="tugas_pokok">Tugas pokok</label>
+                                        <input class="form-control" id="tugas_pokok" type="text" placeholder="Tugas anda" value="<?php echo $tugas; ?>" name="tugas_pokok">
                                     </div>
                                 </div>  
 
                                 <div class="row gx-3 mb-3">
                                     <!-- Form Group (email address)-->
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="tugas_pokok">Tugas pokok</label>
-                                        <input class="form-control" id="tugas_pokok" type="text" placeholder="Tugas anda" value="<?php echo $tugas; ?>" name="tugas_pokok">
-                                    </div>
+                                    
 
                                     <!-- Form Row-->
                                     <div class="col-md-6">

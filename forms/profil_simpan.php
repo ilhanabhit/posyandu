@@ -13,20 +13,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tugasPokokToUpdate = $_POST['tugas_pokok'];
 
     // Cek apakah password baru disertakan dalam formulir
-    $newPassword = $_POST['password'];
-    $hashedNewPassword = md5($newPassword); // Assuming MD5 hashing
+    // $newPassword = $_POST['password'];
+    // $hashedNewPassword = md5($newPassword); // Assuming MD5 hashing
 
-    // Query SQL untuk mendapatkan kata sandi yang sudah ada di database
-    $sqlGetPassword = "SELECT kata_sandi FROM tbl_kader WHERE id_kader = $idKaderToUpdate";
-    $resultGetPassword = $koneksi->query($sqlGetPassword);
+    // // Query SQL untuk mendapatkan kata sandi yang sudah ada di database
+    // $sqlGetPassword = "SELECT kata_sandi FROM tbl_kader WHERE id_kader = $idKaderToUpdate";
+    // $resultGetPassword = $koneksi->query($sqlGetPassword);
 
-    if ($resultGetPassword->num_rows > 0) {
-        $rowGetPassword = $resultGetPassword->fetch_assoc();
-        $currentPasswordInDatabase = $rowGetPassword["kata_sandi"];
+    // if ($resultGetPassword->num_rows > 0) {
+    //     $rowGetPassword = $resultGetPassword->fetch_assoc();
+    //     $currentPasswordInDatabase = $rowGetPassword["kata_sandi"];
 
         // Check if a new password is provided and matches the current password
         if (!empty($newPassword) && $currentPasswordInDatabase === $hashedNewPassword) {
-            echo "Password baru tidak boleh sama dengan password lama.";
+            // echo "Password baru tidak boleh sama dengan password lama.";
         } else {
             // Query SQL UPDATE untuk memperbarui data kader
             $sqlUpdate = "UPDATE tbl_kader SET 
@@ -38,9 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 no_telp = '$notelpToUpdate'";
 
             // Check if a new password is provided and update the query accordingly
-            if (!empty($newPassword)) {
-                $sqlUpdate .= ", kata_sandi = '$hashedNewPassword'";
-            }
+            
 
             $sqlUpdate .= " WHERE id_kader = $idKaderToUpdate";
 
@@ -53,5 +51,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "Terjadi kesalahan saat mengambil kata sandi dari database.";
     }
-}
+// }
 ?>

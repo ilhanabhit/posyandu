@@ -80,7 +80,7 @@
             <h1>Selamat Datang di Website Resmi <span>SiDuta</span></h1>
             <h2 style="font-size: 18px;">Digitalisasi pelayanan Posandu secara Online & Terintegrasi dengan Posyandu Kelurahan Kauman</h2>
             <div class="text-center text-lg-start">
-              <a href="#about" class="btn-get-started scrollto">Mulai</a>
+              <a href="forms/login1.php" class="btn-get-started scrollto">Masuk</a>
             </div>
           </div>
         </div>
@@ -194,12 +194,6 @@
             <div class="icon-box" data-aos="zoom-in" data-aos-delay="350">
               <i class="ri-article-line" style="color: #11dbcf;"></i>
               <h3><a href="">Artikel</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box" data-aos="zoom-in" data-aos-delay="400">
-              <i class="ri-bar-chart-grouped-line" style="color: #4233ff;"></i>
-              <h3><a href="">Grafik Perkembangan</a></h3>
             </div>
           </div>
         </div>

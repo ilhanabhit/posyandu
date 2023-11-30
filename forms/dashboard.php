@@ -8,7 +8,7 @@
 	<meta name="description" content="" />
 	<meta name="author" content="" />
 	<link rel="icon" type="image/png" href="siduta.png" />
-	<title>Data Kader - SiDuta</title>
+	<title>Dashboard - SiDuta</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
 	<link href="coba123.css" rel="stylesheet" />
