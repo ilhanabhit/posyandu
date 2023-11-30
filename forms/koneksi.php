@@ -1,14 +1,16 @@
 <?php
+// untuk membuka web
 
 $host = "localhost";
 $username = "root";
 $passsword = "";
 $database = "posyandu11";
 
+// untuk membuka hosting
 
-$username = "tifz1761_root";
-$passsword = "tifnganjuk321";
-$database = "tifz1761_posyandu";
+// $username = "tifz1761_root";
+// $passsword = "tifnganjuk321";
+// $database = "tifz1761_posyandu";
 
 $koneksi = new mysqli($host, $username, $passsword, $database);
 
