@@ -25,9 +25,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //     $currentPasswordInDatabase = $rowGetPassword["kata_sandi"];
 
         // Check if a new password is provided and matches the current password
-        if (!empty($newPassword) && $currentPasswordInDatabase === $hashedNewPassword) {
-            // echo "Password baru tidak boleh sama dengan password lama.";
-        } else {
+        // if (!empty($newPassword) && $currentPasswordInDatabase === $hashedNewPassword) {
+        //     // echo "Password baru tidak boleh sama dengan password lama.";
+        // } else {
             // Query SQL UPDATE untuk memperbarui data kader
             $sqlUpdate = "UPDATE tbl_kader SET 
                 nama_kader = '$namaKaderToUpdate',
@@ -48,8 +48,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "Terjadi kesalahan saat memperbarui data: " . $koneksi->error;
             }
         }
-    } else {
-        echo "Terjadi kesalahan saat mengambil kata sandi dari database.";
-    }
+    // } else {
+    //     echo "Terjadi kesalahan saat mengambil kata sandi dari database.";
+    // }
 // }
 ?>

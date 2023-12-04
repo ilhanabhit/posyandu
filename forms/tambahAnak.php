@@ -31,8 +31,9 @@ if ($result->num_rows > 0) {
     if ($koneksi->query($sql) === TRUE) {
         echo "<script type='text/javascript'>
         alert('Data Berhasil Ditambah!');
-        location.replace('anak.php');
         </script>";
+        echo '<script>window.location.href = "anak.php";</script>';
+        exit();
     } else {
         echo "<script type='text/javascript'>
         alert('". $sql . "<br>" . $koneksi->error."'); </script>";

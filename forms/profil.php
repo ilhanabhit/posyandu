@@ -7,7 +7,7 @@ $kader = $_SESSION['id_kader'];
 // Periksa apakah $id_kader memiliki nilai sebelum menjalankan query
 
 // Query SQL untuk mengambil data dari tabel kader
-$sql = "SELECT * FROM `tbl_kader` WHERE id_kader ='$kader'";
+$sql = "SELECT * FROM tbl_kader WHERE id_kader ='$kader'";
 $result = $koneksi->query($sql);
 
 if ($result->num_rows > 0) {
@@ -21,7 +21,10 @@ if ($result->num_rows > 0) {
     $hashed_password_db = $row["kata_sandi"]; // Retrieve the hashed password
     $no_telp = $row["no_telp"];
 } else {
-    echo "Tidak ada data kader yang ditemukan.";
+    echo '<script>
+                alert(" Tidak ada data kader yang ditemukan.");
+                window.location.href = "profil.php";
+                </script>';
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -32,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $alamatToUpdate = $_POST['alamat'];
     $jabatanToUpdate = $_POST['jabatan'];
     $tugasPokokToUpdate = $_POST['tugas_pokok'];
-    // $passwordToUpdate = isset($_POST['password']) ? $_POST['password'] : '';
+    $passwordToUpdate = isset($_POST['password']) ? $_POST['password'] : '';
     $noTelpToUpdate = $_POST["no_telp"];
 
     // Verify the entered password with the hashed password stored in the database
@@ -46,7 +49,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         alamat = '$alamatToUpdate',
                         jabatan = '$jabatanToUpdate',
                         tugas_pokok = '$tugasPokokToUpdate',
-                        -- kata_sandi = '$passwordToUpdate',
                         no_telp = '$noTelpToUpdate'
                     WHERE id_kader = $idKaderToUpdate";
 
@@ -58,17 +60,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             echo "Terjadi kesalahan saat memperbarui data: " . $koneksi->error;
         }
-    } else {
-        // echo '<script>
-        //     alert("Password yang dimasukkan tidak sesuai.");
-        //     window.location.href = "profil.php";
-        //     </script>';
-    }
-// }
+    // } else {
+    //     echo '<script>
+    //         alert("Password yang dimasukkan tidak sesuai.");
+    //         window.location.href = "profil.php";
+    //         </script>';
+    // }
+}
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 
 <head>
     <meta charset="utf-8" />
@@ -92,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </head>
 
-<body style="height: max-content; width: 100%;">
+<body style="height: max-content; width: 1500%;">
     <div class="wrapper d-flex align-items-stretch">
         <!-- Sidebar -->
         <?php include 'navbar.php'; ?>
@@ -143,25 +145,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <label class="small mb-1" for="jabatan">Jabatan</label>
                                         <input class="form-control" id="jabatan" type="text" placeholder="Jabatan anda" value="<?php echo $jabatan; ?>" name="jabatan">
                                     </div>
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="tugas_pokok">Tugas pokok</label>
-                                        <input class="form-control" id="tugas_pokok" type="text" placeholder="Tugas anda" value="<?php echo $tugas; ?>" name="tugas_pokok">
-                                    </div>
-                                </div>  
-
-                                <div class="row gx-3 mb-3">
-                                    <!-- Form Group (email address)-->
-                                    
-
                                     <!-- Form Row-->
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="nomor telepon">nomor telpon</label>
                                         <input class="form-control" id="nomor telepon" type="number" placeholder="nomor anda" value="<?php echo $no_telp; ?>" name="no_telp">
                                     </div>
                                 </div>
-
+                                <div class="row gx-3 mb-3">
+                                    <!-- Form Group (email address)-->
+                                    <div class="col-md-12">
+                                        <label class="small mb-1" for="tugas_pokok">Tugas pokok</label>
+                                        <input class="form-control" id="tugas_pokok" type="text" placeholder="Tugas anda" value="<?php echo $tugas; ?>" name="tugas_pokok" style="width: 100%;">
+                                    </div>
+                                </div>
                                 <!-- Simpan button-->
-                                <button class="btn btn-primary" type="submit" style="margin-left: 45%; width: 10%; height: 40px; border-radius: 5px; font-size: 15px; margin-top: 10px;">Simpan</button>
+                                <button class="btn btn-primary" type="submit" style=" width: max-content; height: 40px; border-radius: 5px; font-size: 15px;">Simpan</button>
                             </form>
                         </div>
                     </div>

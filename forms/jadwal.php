@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="width: 100%;">
 
 <head>
     <meta charset="utf-8" />
@@ -25,7 +25,7 @@
 
 </head>
 
-<body style="height: max-content; width: 100%;">
+<body style="height: 2700px; width: 10000px;">
     <div class="wrapper d-flex align-items-stretch">
         <!-- Sidebar -->
         <?php include 'navbar.php'; ?>

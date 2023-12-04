@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="width: 100%;">
 
 <head>
     <meta charset="utf-8" />
@@ -23,7 +23,7 @@
 
 </head>
 
-<body style="height: max-content;width: -webkit-fill-available;" >
+<body style="height: 2700px; width: 10000px;">
     <div class="wrapper d-flex align-items-stretch">
         <!-- Sidebar -->
         <?php include 'navbar.php'; ?>
@@ -193,7 +193,7 @@
                             <div id="deleteArticleModal" class="modal fade">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
-                                        <form action="hapusArtikel.php" method="POST">
+                                        <form action="HapusArtikel.php" method="POST">
                                             <div class="modal-header">
                                                 <h4 class="modal-title">Hapus Artikel</h4>
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>

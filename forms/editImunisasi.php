@@ -17,8 +17,11 @@ if (isset($_POST['update'])) {
     if ($koneksi->query($query) === TRUE) {
         echo "<script type='text/javascript'>
         alert('Data Imunisasi Berhasil Diedit!');
-        location.replace('Imunisasi.php');
+        // location.replace('Imunisasi.php');
         </script>";
+
+        echo '<script>window.location.href = "imunisasi.php";</script>';
+        exit();
     } else {
         echo "Error updating record: " . $koneksi->error;
     }

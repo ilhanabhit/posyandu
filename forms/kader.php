@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 
 <head>
     <meta charset="utf-8" />
@@ -23,7 +23,7 @@
 
 </head>
 
-<body style="height: max-content;width: -webkit-fill-available;">
+<body style="height: 2700px; width: 10000px;">
     <div class="wrapper d-flex align-items-stretch">
         <!-- navbar -->
         <?php include 'navbar.php'; ?>
@@ -55,28 +55,24 @@
                             <table id="datatablesSimple" class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>NIK Kader</th>
                                         <th>Nama Kader</th>
                                         <th>Tanggal Lahir</th>
                                         <th>Alamat</th>
                                         <th>Jabatan</th>
                                         <th>Tugas Pokok</th>
                                         <th>No. Telepon</th>
-                                        
                                         <th>Foto Kader</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th>NIK Kader</th>
                                         <th>Nama Kader</th>
                                         <th>Tanggal Lahir</th>
                                         <th>Alamat</th>
                                         <th>Jabatan</th>
                                         <th>Tugas Pokok</th>
                                         <th>No. Telepon</th>
-                                        
                                         <th>Foto Kader</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -100,17 +96,16 @@
                                             $tugas_pokok = $row['tugas_pokok'];
                                             $no_telp = $row['no_telp'];
                                             $img_kader = $row['img_kader'];
-                                            
+
 
                                             echo '<tr>';
-                                            echo '<td>' . $id_kader . '</td>';
                                             echo '<td>' . $nama_kader . '</td>';
                                             echo '<td>' . $tgl_lahir . '</td>';
                                             echo '<td>' . $alamat . '</td>';
                                             echo '<td>' . $jabatan . '</td>';
                                             echo '<td>' . $tugas_pokok . '</td>';
                                             echo '<td>' . $no_telp . '</td>';
-                                            
+
                                             echo '<td><img src="berkas/team/' . $img_kader . '" alt="Foto Kader" width="50" height="50"></td>';
                                             echo '<td>';
                                             echo '<a href="#editEmployeeModal-' . $id_kader . '" class="edit" data-toggle="modal" data-target="#editEmployeeModal-' . $id_kader . '"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>';
@@ -128,12 +123,8 @@
                               </div>
                               <div class='modal-body'>
                                   <div class='form-group'>
-                                      <label for='nik-" . $row["id_kader"] . "'>NIK Kader</label>
-                                      <input type='text' class='form-control' id='nik-" . $row["id_kader"] . "' name='nik' value='" . $row["id_kader"] . "' required>
-                                  </div>
-                                  <div class='form-group'>
                                       <label for='nama-" . $row["id_kader"] . "'>Nama Kader</label>
-                                      <input type='text' class='form-control' id='nama-" . $row["id_kader"] . "' name='nama' value='" . $row["nama_kader"] . "' required>
+                                      <input type='text' class='form-control' id='nama' name='nama' value='" . $row["nama_kader"] . "' required>
                                   </div>
                                   <div class='form-group'>
                                       <label for='tanggal-lahir-" . $row["id_kader"] . "'>Tanggal Lahir</label>
@@ -153,7 +144,7 @@
                                   </div>
                                   <div class='form-group'>
                                       <label for='no_telp-" . $row["id_kader"] . "'>No.Telepon</label>
-                                      <input type='text' class='form-control' id='no_telp-" . $row["id_kader"] . "' name='no_telp' value='" . $row["no_telp"] . "' required>
+                                      <input type='text' class='form-control' id='no_telp' name='no_telp' value='" . $row["no_telp"] . "' required>
                                   </div>
                               </div>
                               <div class='modal-footer'>
@@ -183,10 +174,6 @@
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                             </div>
                                             <div class="modal-body">
-                                                <div class="form-group">
-                                                    <label for="nik">NIK Kader</label>
-                                                    <input type="number" id="id_kader" name="id_kader" class="form-control" required style="border-color: black; border :1px solid black;">
-                                                </div>
                                                 <div class="form-group">
                                                     <label for="nama">Nama Kader</label>
                                                     <input type="text" id="nama_kader" name="nama_kader" class="form-control" required style="border-color: black; border :1px solid black;">

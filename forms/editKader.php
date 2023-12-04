@@ -8,7 +8,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])) {
     $tgl_lahir = $_POST['tanggal-lahir'];
     $alamat = $_POST['alamat'];
     $jabatan = $_POST['jabatan'];
-    $tugas_pokok = $_POST['tugas-pokok'];
+    $tugas_pokok = $_POST['tugas-pokok']; // Modified field name
+    $no_telp = $_POST['no-telp']; // Modified field name
 
     // Siapkan pernyataan SQL untuk memperbarui data di dalam tabel
     $sql = "UPDATE tbl_kader
@@ -16,15 +17,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])) {
                 tgl_lahir = '$tgl_lahir', 
                 alamat = '$alamat', 
                 jabatan = '$jabatan', 
-                tugas_pokok = '$tugas_pokok'
+                tugas_pokok = '$tugas_pokok',
+                no_telp = '$no_telp'
             WHERE id_kader = '$id_kader'";
 
     // Eksekusi pernyataan SQL
     if ($koneksi->query($sql) === TRUE) {
         echo "<script type='text/javascript'>
             alert('Data Kader Berhasil Diperbarui!');
-            location.replace('kader.php');
         </script>";
+        echo '<script>window.location.href = "kader.php";</script>';
+        exit();
     } else {
         echo "Terjadi kesalahan: " . $koneksi->error;
     }

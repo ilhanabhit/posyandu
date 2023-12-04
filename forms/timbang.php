@@ -25,7 +25,7 @@
 
 </head>
 
-<body style="height: max-content;width: -webkit-fill-available;">
+<body style="height: 2700px; width: 10000px;">
     <div class="wrapper d-flex align-items-stretch">
         <!-- Sidebar -->
         <?php include 'navbar.php'; ?>
