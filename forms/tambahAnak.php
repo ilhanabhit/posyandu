@@ -22,7 +22,7 @@ $result = $koneksi->query($query);
 if ($result->num_rows > 0) {
     // Jika ditemukan hasil, ambil ID ibu
     $row = $result->fetch_assoc();
-    $idIbu = $row['nik_ibu'];
+    $idIbu = $row['nik_ibu'];                           
 
     // Sekarang, Anda memiliki ID ibu yang sesuai yang dapat ditambahkan ke tabel anak
     $sql = "INSERT INTO tbl_anak (id_anak, nama_anak, tanggal_lahir_anak, jenis_kelamin, bb_lahir, tb_lahir, alamat, nik_ibu)

@@ -154,11 +154,7 @@
                                                             <div class='form-group'>
                                                                 <label for='alamat-" . $row["id_anak"] . "'>Alamat</label>
                                                                 <input type='text' class='form-control' id='alamat-" . $row["id_anak"] . "' name='alamat' value='" . $row["alamat"] . "' required>
-                                                            </div>
-                                                            <div class='form-group'>
-                                                                <label for='nama-orangtua-" . $row["id_anak"] . "'>Nama Orangtua</label>
-                                                                <input type='text' class='form-control' id='nama-orangtua-" . $row["id_anak"] . "' name='nama-orangtua' value='" . $row["nama_ibu"] . " - " . $row["nama_ayah"] . "' required>
-                                                            </div>
+                                                            </div>      
                                                         </div>
                                                         <div class='modal-footer'>
                                                             <input type='button' class='btn btn-default' data-dismiss='modal' value='Batal'>

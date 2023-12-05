@@ -60,7 +60,7 @@
                                         <th>Alamat</th>
                                         <th>Jabatan</th>
                                         <th>Tugas Pokok</th>
-                                        <th>No. Telepon</th>
+                                        <th>No.Telepon</th>
                                         <th>Foto Kader</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -72,7 +72,7 @@
                                         <th>Alamat</th>
                                         <th>Jabatan</th>
                                         <th>Tugas Pokok</th>
-                                        <th>No. Telepon</th>
+                                        <th>No.Telepon</th>
                                         <th>Foto Kader</th>
                                         <th>Aksi</th>
                                     </tr>
