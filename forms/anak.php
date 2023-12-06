@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" style="height: auto;">
+<html lang="en" style="width: 100%;">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
     <link rel="icon" type="image/png" href="siduta.png" />
@@ -25,7 +24,7 @@
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 
-<body style="height: 2700px; width: 10000px;">
+<body style="height: max-content; width: auto;">
     <div class="wrapper d-flex align-items-stretch">
         <!-- Sidebar -->
         <?php include 'navbar.php'; ?>
@@ -91,8 +90,8 @@
                                     include("koneksi.php");
                                     // Query SQL dengan INNER JOIN
                                     $sql = "SELECT tbl_anak.*, tbl_orangtua.nama_ibu, tbl_orangtua.nama_ayah 
-FROM tbl_anak
-INNER JOIN tbl_orangtua ON tbl_anak.nik_ibu = tbl_orangtua.nik_ibu";
+        FROM tbl_anak
+        INNER JOIN tbl_orangtua ON tbl_anak.nik_ibu = tbl_orangtua.nik_ibu";
 
                                     $result = $koneksi->query($sql);
 
@@ -232,15 +231,13 @@ INNER JOIN tbl_orangtua ON tbl_anak.nik_ibu = tbl_orangtua.nik_ibu";
 
                                                         if ($result->num_rows > 0) {
                                                             while ($row = $result->fetch_assoc()) {
-                                                                $nikIbu = $row['nik_ibu'];
-                                                                $namaIbu = $row['nama_ibu'];
-                                                                $namaAyah = $row['nama_ayah'];
-                                                                echo "<option value='$nikIbu|$namaIbu|$namaAyah'>$namaIbu - $namaAyah</option>";
+                                                                echo '<option value="' . $row["nik_ibu"] . '">"' . $row["nama_ibu"] . '-' . $row["nama_ayah"] . '"</option>';
                                                             }
                                                         }
                                                         ?>
                                                     </select>
                                                 </div>
+
                                             </div>
                                             <div class="modal-footer">
                                                 <input type="button" class="btn btn-default" data-dismiss="modal" value="Batal" style="background-color: red; color: white;">

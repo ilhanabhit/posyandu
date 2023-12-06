@@ -43,7 +43,7 @@ Tabel Anak
                 }
 
                 // // Hapus semua data dari tbl_anak
-                $sqlDeleteAnak = "DELETE FROM tbl_anak WHERE `tbl_anak`.`nik_ibu` = 2856868";
+                // $sqlDeleteAnak = "DELETE FROM tbl_anak WHERE `tbl_anak`.`nik_ibu` = 2147483647";
                 if ($koneksi->query($sqlDeleteAnak) === TRUE) {
                     echo "Semua data anak berhasil dihapus.";
                 } else {
