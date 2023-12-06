@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
@@ -55,6 +55,7 @@
                             <table id="datatablesSimple" class="table table-hover">
                                 <thead>
                                     <tr>
+                                        <th>ID Kader</th>
                                         <th>Nama Kader</th>
                                         <th>Tanggal Lahir</th>
                                         <th>Alamat</th>
@@ -67,6 +68,7 @@
                                 </thead>
                                 <tfoot>
                                     <tr>
+                                        <th>ID Kader</th>
                                         <th>Nama Kader</th>
                                         <th>Tanggal Lahir</th>
                                         <th>Alamat</th>
@@ -99,6 +101,7 @@
 
 
                                             echo '<tr>';
+                                            echo '<td>' . $id_kader . '</td>';
                                             echo '<td>' . $nama_kader . '</td>';
                                             echo '<td>' . $tgl_lahir . '</td>';
                                             echo '<td>' . $alamat . '</td>';
@@ -122,6 +125,10 @@
                                   <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
                               </div>
                               <div class='modal-body'>
+                              <div class='form-group'>
+                              <label for='nik-" . $row["id_kader"] . "'>ID Kader</label>
+                              <input type='text' class='form-control' id='nik-" . $row["id_kader"] . "' name='nik' value='" . $row["id_kader"] . "' required>
+                          </div>                          
                                   <div class='form-group'>
                                       <label for='nama-" . $row["id_kader"] . "'>Nama Kader</label>
                                       <input type='text' class='form-control' id='nama' name='nama' value='" . $row["nama_kader"] . "' required>
@@ -174,6 +181,10 @@
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                             </div>
                                             <div class="modal-body">
+                                                <div class="form-group">
+                                                    <label for="nik">ID Kader</label>
+                                                    <input type="text" id="nik" name="nik" class="form-control" required style="border-color: black; border :1px solid black;">
+                                                </div>
                                                 <div class="form-group">
                                                     <label for="nama">Nama Kader</label>
                                                     <input type="text" id="nama_kader" name="nama_kader" class="form-control" required style="border-color: black; border :1px solid black;">

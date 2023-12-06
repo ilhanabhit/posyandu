@@ -25,7 +25,7 @@
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 
-<body style="height: 2700px; width: 10000px;" >
+<body style="height: 2700px; width: 10000px;">
     <div class="wrapper d-flex align-items-stretch">
         <!-- Sidebar -->
         <?php include 'navbar.php'; ?>
@@ -91,8 +91,8 @@
                                     include("koneksi.php");
                                     // Query SQL dengan INNER JOIN
                                     $sql = "SELECT tbl_anak.*, tbl_orangtua.nama_ibu, tbl_orangtua.nama_ayah 
-        FROM tbl_anak
-        INNER JOIN tbl_orangtua ON tbl_anak.nik_ibu = tbl_orangtua.nik_ibu";
+FROM tbl_anak
+INNER JOIN tbl_orangtua ON tbl_anak.nik_ibu = tbl_orangtua.nik_ibu";
 
                                     $result = $koneksi->query($sql);
 
@@ -154,7 +154,11 @@
                                                             <div class='form-group'>
                                                                 <label for='alamat-" . $row["id_anak"] . "'>Alamat</label>
                                                                 <input type='text' class='form-control' id='alamat-" . $row["id_anak"] . "' name='alamat' value='" . $row["alamat"] . "' required>
-                                                            </div>      
+                                                            </div>
+                                                            <div class='form-group'>
+                                                                <label for='nama-orangtua-" . $row["id_anak"] . "'>Nama Orangtua</label>
+                                                                <input type='text' class='form-control' id='nama-orangtua-" . $row["id_anak"] . "' name='nama-orangtua' value='" . $row["nama_ibu"] . " - " . $row["nama_ayah"] . "' required>
+                                                            </div>
                                                         </div>
                                                         <div class='modal-footer'>
                                                             <input type='button' class='btn btn-default' data-dismiss='modal' value='Batal'>
@@ -223,20 +227,20 @@
                                                         <?php
                                                         include('koneksi.php');
 
-                                                        $query = "SELECT nama_ibu, nama_ayah FROM tbl_orangtua";
+                                                        $query = "SELECT nik_ibu, nama_ibu, nama_ayah FROM tbl_orangtua";
                                                         $result = $koneksi->query($query);
 
                                                         if ($result->num_rows > 0) {
                                                             while ($row = $result->fetch_assoc()) {
+                                                                $nikIbu = $row['nik_ibu'];
                                                                 $namaIbu = $row['nama_ibu'];
                                                                 $namaAyah = $row['nama_ayah'];
-                                                                echo "<option value='$namaIbu|$namaAyah'>$namaIbu - $namaAyah</option>";
+                                                                echo "<option value='$nikIbu|$namaIbu|$namaAyah'>$namaIbu - $namaAyah</option>";
                                                             }
                                                         }
                                                         ?>
                                                     </select>
                                                 </div>
-
                                             </div>
                                             <div class="modal-footer">
                                                 <input type="button" class="btn btn-default" data-dismiss="modal" value="Batal" style="background-color: red; color: white;">

@@ -4,7 +4,8 @@ include('koneksi.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Periksa apakah kunci-kunci yang dibutuhkan telah diatur
-    if (isset($_POST['nama_kader']) && isset($_POST['tgl_lahir']) && isset($_POST['alamat']) && isset($_POST['jabatan']) && isset($_POST['tugas_pokok']) && isset($_POST['no_telp']) && isset($_POST['kata_sandi']) && isset($_FILES['img_kader'])) {
+    if (isset($_POST['nik']) && isset($_POST['nama_kader']) && isset($_POST['tgl_lahir']) && isset($_POST['alamat']) && isset($_POST['jabatan']) && isset($_POST['tugas_pokok']) && isset($_POST['no_telp']) && isset($_POST['kata_sandi']) && isset($_FILES['img_kader'])) {
+        $id_kader = $_POST['nik'];
         $nama_kader = $_POST['nama_kader'];
         $tgl_lahir = $_POST['tgl_lahir'];
         $alamat = $_POST['alamat'];
@@ -22,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // Siapkan pernyataan SQL untuk memasukkan data ke dalam tabel
             $sql = "INSERT INTO tbl_kader (id_kader, nama_kader, tgl_lahir, alamat, jabatan, tugas_pokok, no_telp, kata_sandi, img_kader) 
-        VALUES (null, '$nama_kader', '$tgl_lahir', '$alamat', '$jabatan', '$tugas_pokok', '$no_telp', '$password', '$gambar')";
+        VALUES ('$id_kader', '$nama_kader', '$tgl_lahir', '$alamat', '$jabatan', '$tugas_pokok', '$no_telp', '$password', '$gambar')";
 
             // Eksekusi pernyataan SQL
             if ($koneksi->query($sql) === TRUE) {

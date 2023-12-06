@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" style="width: fit-content;">
+<html lang="en" style="width: auto;">
 
 <head>
   <meta charset="utf-8">
@@ -37,7 +37,7 @@
   ======================================================== -->
 </head>
 
-<body style="height: max-content;width: -webkit-fill-available;">
+<body style="height: max-content">
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center header-transparent">
@@ -675,7 +675,7 @@
             <span style="text-align: center; font-size: 14px; font-weight: bold; align-items: center;">
               Sistem Informasi<br>Posyandu Balita<br>
             </span>
-            <a href="link_ke_unduhan_aplikasi_mobile" class="btn btn-primary" style="margin-top: 10px;">Download Now</a>
+            <a href="forms/berkas/apk/Mobile1.2.apk" class="btn btn-primary" style="margin-top: 10px;">Download Now</a>
           </div>
 
           <div class="container">

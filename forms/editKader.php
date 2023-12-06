@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])) {
     $alamat = $_POST['alamat'];
     $jabatan = $_POST['jabatan'];
     $tugas_pokok = $_POST['tugas-pokok']; // Modified field name
-    $no_telp = $_POST['no-telp']; // Modified field name
+    $no_telp = $_POST['no_telp']; // Modified field name
 
     // Siapkan pernyataan SQL untuk memperbarui data di dalam tabel
     $sql = "UPDATE tbl_kader
