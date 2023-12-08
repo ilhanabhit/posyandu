@@ -41,7 +41,7 @@
                     <div class="card mb-4">
                         <div class="card-header" style="font-size: 18px;">
                             <i class="fas fa-table me-1" style="margin-top: 8px;"></i>
-                            Data Balita
+                            Data Imunisasi
                             <style>
                                 .material-icons {
                                     font-size: 18px;

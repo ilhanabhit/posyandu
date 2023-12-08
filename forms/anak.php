@@ -24,13 +24,13 @@
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 
-<body style="height: max-content; width: auto;">
+<body style="height: 2700px; width: 10000px;">
     <div class="wrapper d-flex align-items-stretch">
         <!-- Sidebar -->
         <?php include 'navbar.php'; ?>
         <div id="content" class="p-4 p-md-5 pt-5">
             <main>
-                <div class="container-fluid px-4">
+                <div class="container-fluid px-4" style="width: 1200px;">
                     <h1 class="mt-4">Data Balita</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
@@ -64,8 +64,6 @@
                                         <th>Berat Badan</th>
                                         <th>Tinggi Badan</th>
                                         <th>Alamat</th>
-                                        <th>Nama Ibu</th>
-                                        <th>Nama Ayah</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -78,24 +76,19 @@
                                         <th>Berat Badan</th>
                                         <th>Tinggi Badan</th>
                                         <th>Alamat</th>
-                                        <th>Nama Ibu</th>
-                                        <th>Nama Ayah</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
                                     <!-- Tambahkan baris berikut ke dalam tabel tbody untuk menampilkan data -->
-
                                     <?php
                                     include("koneksi.php");
-                                    // Query SQL dengan INNER JOIN
-                                    $sql = "SELECT tbl_anak.*, tbl_orangtua.nama_ibu, tbl_orangtua.nama_ayah 
-        FROM tbl_anak
-        INNER JOIN tbl_orangtua ON tbl_anak.nik_ibu = tbl_orangtua.nik_ibu";
+
+                                    $sql = "SELECT id_anak, nama_anak, jenis_kelamin, tanggal_lahir_anak, bb_lahir, tb_lahir, alamat, nik_ibu FROM tbl_anak";
 
                                     $result = $koneksi->query($sql);
 
-                                    if ($result->num_rows > 0) {
+                                    if ($result) {
                                         while ($row = $result->fetch_assoc()) {
                                             // Tampilkan data anak dan nama ibu di dalam tabel
                                             echo "<tr>";
@@ -106,68 +99,65 @@
                                             echo "<th>" . $row["bb_lahir"] . "</th>";
                                             echo "<th>" . $row["tb_lahir"] . "</th>";
                                             echo "<th>" . $row["alamat"] . "</th>";
-                                            echo "<th>" . $row["nama_ibu"] . "</th>";
-                                            echo "<th>" . $row["nama_ayah"] . "</th>";
+
                                             echo "<th>
-                                              <a href='#editEmployeeModal-" . $row["id_anak"] . "' class='edit' data-toggle='modal'><i class='material-icons' data-toggle='tooltip' title='Edit'>&#xE254;</i></a>
-                                              <a href='#deleteEmployeeModal' class='delete' data-toggle='modal' data-id='" . $row["id_anak"] . "'><i class='material-icons' data-toggle='tooltip' title='Delete'>&#xE872;</i></a>
-                                            </th>";
+              <a href='#editEmployeeModal-" . $row["id_anak"] . "' class='edit' data-toggle='modal'><i class='material-icons' data-toggle='tooltip' title='Edit'>&#xE254;</i></a>
+              <a href='#deleteEmployeeModal' class='delete' data-toggle='modal' data-id='" . $row["id_anak"] . "'><i class='material-icons' data-toggle='tooltip' title='Delete'>&#xE872;</i></a>
+            </th>";
                                             echo "</tr>";
+
                                             // Tambahkan modal edit untuk setiap baris data
                                             echo "<div id='editEmployeeModal-" . $row["id_anak"] . "' class='modal fade'>
-                                            <div class='modal-dialog'>
-                                                <div class='modal-content'>
-                                                    <form id='edit-anak-form-" . $row["id_anak"] . "' action='editAnak.php' method='POST'>
-                                                        <div class='modal-header'>
-                                                            <h4 class='modal-title'>Edit Data Balita</h4>
-                                                            <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
-                                                        </div>
-                                                        <div class='modal-body'>
-                                                            <div class='form-group'>
-                                                                <label for='nik-" . $row["id_anak"] . "'>NIK Balita</label>
-                                                                <input type='number' class='form-control' id='nik-" . $row["id_anak"] . "' name='nik' value='" . $row["id_anak"] . "' required>
-                                                            </div>
-                                                            <div class='form-group'>
-                                                                <label for='nama-" . $row["id_anak"] . "'>Nama Balita</label>
-                                                                <input type='text' class='form-control' id='nama-" . $row["id_anak"] . "' name='nama' value='" . $row["nama_anak"] . "' required>
-                                                            </div>
-                                                            <div class='form-group'>
-                                                                <label for='jenis-kelamin-" . $row["id_anak"] . "'>Jenis Kelamin</label>
-                                                                <select id='jenis-kelamin-" . $row["id_anak"] . "' name='jenis-kelamin' class='form-control' required>
-                                                                    <option value='Laki-laki' " . ($row["jenis_kelamin"] == 'Laki-laki' ? 'selected' : '') . ">Laki-laki</option>
-                                                                    <option value='Perempuan' " . ($row["jenis_kelamin"] == 'Perempuan' ? 'selected' : '') . ">Perempuan</option>
-                                                                </select>
-                                                            </div>
-                                                            <div class='form-group'>
-                                                                <label for='tanggal-lahir-" . $row["id_anak"] . "'>Tanggal Lahir</label>
-                                                                <input type='date' class='form-control' id='tanggal-lahir-" . $row["id_anak"] . "' name='tanggal-lahir' value='" . $row["tanggal_lahir_anak"] . "' required>
-                                                            </div>
-                                                            <div class='form-group'>
-                                                                <label for='bb-lahir-" . $row["id_anak"] . "'>Berat Badan</label>
-                                                                <input type='number' class='form-control' id='bb-lahir-" . $row["id_anak"] . "' name='bb-lahir' value='" . $row["bb_lahir"] . "' required>
-                                                            </div>
-                                                            <div class='form-group'>
-                                                                <label for='tb-lahir-" . $row["id_anak"] . "'>Tinggi Badan</label>
-                                                                <input type='number' class='form-control' id='tb-lahir-" . $row["id_anak"] . "' name='tb-lahir' value='" . $row["tb_lahir"] . "' required>
-                                                            </div>
-                                                            <div class='form-group'>
-                                                                <label for='alamat-" . $row["id_anak"] . "'>Alamat</label>
-                                                                <input type='text' class='form-control' id='alamat-" . $row["id_anak"] . "' name='alamat' value='" . $row["alamat"] . "' required>
-                                                            </div>
-                                                            <div class='form-group'>
-                                                                <label for='nama-orangtua-" . $row["id_anak"] . "'>Nama Orangtua</label>
-                                                                <input type='text' class='form-control' id='nama-orangtua-" . $row["id_anak"] . "' name='nama-orangtua' value='" . $row["nama_ibu"] . " - " . $row["nama_ayah"] . "' required>
-                                                            </div>
-                                                        </div>
-                                                        <div class='modal-footer'>
-                                                            <input type='button' class='btn btn-default' data-dismiss='modal' value='Batal'>
-                                                            <input type='submit' class='btn btn-info' value='Simpan' name='update'>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>";
+            <div class='modal-dialog'>
+                <div class='modal-content'>
+                    <form id='edit-anak-form-" . $row["id_anak"] . "' action='editAnak.php' method='POST'>
+                        <div class='modal-header'>
+                            <h4 class='modal-title'>Edit Data Balita</h4>
+                            <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+                        </div>
+                        <div class='modal-body'>
+                            <div class='form-group'>
+                                <label for='nik-" . $row["id_anak"] . "'>NIK Balita</label>
+                                <input type='number' class='form-control' id='nik-" . $row["id_anak"] . "' name='nik' value='" . $row["id_anak"] . "' required>
+                            </div>
+                            <div class='form-group'>
+                                <label for='nama-" . $row["id_anak"] . "'>Nama Balita</label>
+                                <input type='text' class='form-control' id='nama-" . $row["id_anak"] . "' name='nama' value='" . $row["nama_anak"] . "' required>
+                            </div>
+                            <div class='form-group'>
+                                <label for='jenis-kelamin-" . $row["id_anak"] . "'>Jenis Kelamin</label>
+                                <select id='jenis-kelamin-" . $row["id_anak"] . "' name='jenis-kelamin' class='form-control' required>
+                                    <option value='Laki-laki' " . ($row["jenis_kelamin"] == 'Laki-laki' ? 'selected' : '') . ">Laki-laki</option>
+                                    <option value='Perempuan' " . ($row["jenis_kelamin"] == 'Perempuan' ? 'selected' : '') . ">Perempuan</option>
+                                </select>
+                            </div>
+                            <div class='form-group'>
+                                <label for='tanggal-lahir-" . $row["id_anak"] . "'>Tanggal Lahir</label>
+                                <input type='date' class='form-control' id='tanggal-lahir-" . $row["id_anak"] . "' name='tanggal-lahir' value='" . $row["tanggal_lahir_anak"] . "' required>
+                            </div>
+                            <div class='form-group'>
+                                <label for='bb-lahir-" . $row["id_anak"] . "'>Berat Badan</label>
+                                <input type='number' class='form-control' id='bb-lahir-" . $row["id_anak"] . "' name='bb-lahir' value='" . $row["bb_lahir"] . "' required>
+                            </div>
+                            <div class='form-group'>
+                                <label for='tb-lahir-" . $row["id_anak"] . "'>Tinggi Badan</label>
+                                <input type='number' class='form-control' id='tb-lahir-" . $row["id_anak"] . "' name='tb-lahir' value='" . $row["tb_lahir"] . "' required>
+                            </div>
+                            <div class='form-group'>
+                                <label for='alamat-" . $row["id_anak"] . "'>Alamat</label>
+                                <input type='text' class='form-control' id='alamat-" . $row["id_anak"] . "' name='alamat' value='" . $row["alamat"] . "' required>
+                            </div>
+                        </div>
+                        <div class='modal-footer'>
+                            <input type='button' class='btn btn-default' data-dismiss='modal' value='Batal'>
+                            <input type='submit' class='btn btn-info' value='Simpan' name='update'>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>";
                                         }
+                                        mysqli_free_result($result);
                                     } else {
                                         echo "Tidak ada data anak.";
                                     }
@@ -175,7 +165,6 @@
                                     // Tutup koneksi
                                     $koneksi->close();
                                     ?>
-                                    <!-- Tambahkan data anak lainnya di sini dengan format yang sama -->
                                 </tbody>
                             </table>
                             <!-- Tambah Modal HTML -->
@@ -231,7 +220,7 @@
 
                                                         if ($result->num_rows > 0) {
                                                             while ($row = $result->fetch_assoc()) {
-                                                                echo '<option value="' . $row["nik_ibu"] . '">"' . $row["nama_ibu"] . '-' . $row["nama_ayah"] . '"</option>';
+                                                                echo '<option value="' . $row["nik_ibu"] . '">' . $row["nama_ibu"] . '-' . $row["nama_ayah"] . '</option>';
                                                             }
                                                         }
                                                         ?>

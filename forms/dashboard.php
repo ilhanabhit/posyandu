@@ -265,8 +265,8 @@
 															<th>Berat Badan</th>
 															<th>Tinggi Badan</th>
 															<th>Alamat</th>
-															<th>Nama Ibu</th>
-															<th>Nama Ayah</th>
+															<!-- <th>Nama Ibu</th>
+															<th>Nama Ayah</th> -->
 														</tr>
 													</thead>
 													<tbody>
@@ -274,25 +274,21 @@
 														<?php
 														include("koneksi.php");
 														// Query SQL dengan INNER JOIN
-														$sql = "SELECT tbl_anak.*, tbl_orangtua.nama_ibu, tbl_orangtua.nama_ayah 
-                                        FROM tbl_anak
-                                        INNER JOIN tbl_orangtua ON tbl_anak.nik_ibu = tbl_orangtua.nik_ibu";
+														$sql = "SELECT id_anak, nama_anak, jenis_kelamin, tanggal_lahir_anak, bb_lahir, tb_lahir, alamat, nik_ibu FROM tbl_anak";
 
-														$result = $koneksi->query($sql);
-
-														if ($result->num_rows > 0) {
-															while ($row = $result->fetch_assoc()) {
-																// Tampilkan data anak, nama ibu, dan nama ayah di dalam tabel
+														$resultOuter = $koneksi->query($sql);
+					
+														if ($resultOuter) {
+															while ($row = $resultOuter->fetch_assoc()) {
+																// Tampilkan data anak dan nama ibu di dalam tabel
 																echo "<tr>";
-																echo "<td>" . $row["id_anak"] . "</td>";
-																echo "<td>" . $row["nama_anak"] . "</td>";
-																echo "<td>" . $row["jenis_kelamin"] . "</td>";
-																echo "<td>" . $row["tanggal_lahir_anak"] . "</td>";
-																echo "<td>" . $row["bb_lahir"] . "</td>";
-																echo "<td>" . $row["tb_lahir"] . "</td>";
-																echo "<td>" . $row["alamat"] . "</td>";
-																echo "<td>" . $row["nama_ibu"] . "</td>"; // Kolom nama ibu
-																echo "<td>" . $row["nama_ayah"] . "</td>"; // Kolom nama ayah
+																echo "<th>" . $row["id_anak"] . "</th>";
+																echo "<th>" . $row["nama_anak"] . "</th>";
+																echo "<th>" . $row["jenis_kelamin"] . "</th>";
+																echo "<th>" . $row["tanggal_lahir_anak"] . "</th>";
+																echo "<th>" . $row["bb_lahir"] . "</th>";
+																echo "<th>" . $row["tb_lahir"] . "</th>";
+																echo "<th>" . $row["alamat"] . "</th>";
 																echo "</tr>";
 															}
 														} else {

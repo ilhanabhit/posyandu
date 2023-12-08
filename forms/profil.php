@@ -22,8 +22,8 @@ if ($result->num_rows > 0) {
     $no_telp = $row["no_telp"];
 } else {
     echo '<script>
-                alert(" Tidak ada data kader yang ditemukan.");
-                window.location.href = "profil.php";
+                alert(" data kader tidak ditemukan,silakan login kembali");
+                window.location.href = "login1.php";
                 </script>';
 }
 
