@@ -1,35 +1,45 @@
 <?php
 include("koneksi.php");
 
-if(isset($_POST['update'])){
-    $nikBalita = $_POST['nik'];
-    $namaBalita = $_POST['nama'];
-    $jenisKelamin = $_POST['jenis-kelamin'];
-    $tanggalLahir = $_POST['tanggal-lahir'];
-    $beratBadan = $_POST['bb-lahir'];
-    $tinggiBadan = $_POST['tb-lahir'];
-    $alamat = $_POST['alamat'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Pemeriksaan isset pada setiap elemen POST
+    if (isset($_POST['nik'], $_POST['nama'], $_POST['tanggal-lahir'], $_POST['jenis-kelamin'], $_POST['bb-lahir'], $_POST['tb-lahir'])) {
+        // Ambil data dari form
+        $nikAnak = $_POST['nik'];
+        $namaAnak = $_POST['nama'];
+        $tanggalLahir = $_POST['tanggal-lahir'];
+        $jenisKelamin = $_POST['jenis-kelamin'];
+        $beratBadanLahir = $_POST['bb-lahir'];
+        $tinggiBadanLahir = $_POST['tb-lahir'];
+        $alamat = $_POST['alamat'];
 
-        // Update child data in the database, including the id_ibu
-        $sql = "UPDATE tbl_anak SET 
-                nama_anak = '$namaBalita',
-                jenis_kelamin = '$jenisKelamin',
-                tanggal_lahir_anak = '$tanggalLahir',
-                bb_lahir = '$beratBadan',
-                tb_lahir = '$tinggiBadan',
-                alamat = '$alamat',
-                WHERE id_anak = '$nikBalita'";
+        // Sekarang, Anda memiliki ID ibu yang sesuai yang dapat ditambahkan ke tabel anak
+        $sql = "UPDATE tbl_anak SET
+            nama_anak = '$namaAnak',
+            tanggal_lahir_anak = '$tanggalLahir',
+            jenis_kelamin = '$jenisKelamin',
+            bb_lahir = '$beratBadanLahir',
+            tb_lahir = '$tinggiBadanLahir',
+            alamat = '$alamat'
+            WHERE id_anak = '$nikAnak'";
 
         if ($koneksi->query($sql) === TRUE) {
             echo "<script type='text/javascript'>
-        alert('Data Berhasil Diedit!');
-        location.replace('anak.php');
-        </script>";
+            alert('Data Berhasil Diupdate!');
+            location.replace('anak.php');
+            </script>";
         } else {
             echo "<script type='text/javascript'>
-        alert('". $sql . "<br>" . $koneksi->error."'); </script>";
+            alert('Error updating record: " . $koneksi->error . "');
+            </script>";
         }
-
-    $koneksi->close();
+    } else {
+        echo "<script type='text/javascript'>
+            alert('Data tidak lengkap. Harap isi semua field.');
+            location.replace('anak.php');
+            </script>";
+    }
 }
+
+$koneksi->close();
 ?>

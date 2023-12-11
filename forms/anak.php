@@ -118,7 +118,7 @@
                         <div class='modal-body'>
                             <div class='form-group'>
                                 <label for='nik-" . $row["id_anak"] . "'>NIK Balita</label>
-                                <input type='number' class='form-control' id='nik-" . $row["id_anak"] . "' name='nik' value='" . $row["id_anak"] . "' required>
+                                <input type='number' class='form-control' id='nik-" . $row["id_anak"] . "' name='nik' value='" . $row["id_anak"] . "' readonly>
                             </div>
                             <div class='form-group'>
                                 <label for='nama-" . $row["id_anak"] . "'>Nama Balita</label>
