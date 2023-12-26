@@ -108,54 +108,78 @@
 
                                             // Tambahkan modal edit untuk setiap baris data
                                             echo "<div id='editEmployeeModal-" . $row["id_anak"] . "' class='modal fade'>
-            <div class='modal-dialog'>
-                <div class='modal-content'>
-                    <form id='edit-anak-form-" . $row["id_anak"] . "' action='editAnak.php' method='POST'>
-                        <div class='modal-header'>
-                            <h4 class='modal-title'>Edit Data Balita</h4>
-                            <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
-                        </div>
-                        <div class='modal-body'>
-                            <div class='form-group'>
-                                <label for='nik-" . $row["id_anak"] . "'>NIK Balita</label>
-                                <input type='number' class='form-control' id='nik-" . $row["id_anak"] . "' name='nik' value='" . $row["id_anak"] . "' readonly>
-                            </div>
-                            <div class='form-group'>
-                                <label for='nama-" . $row["id_anak"] . "'>Nama Balita</label>
-                                <input type='text' class='form-control' id='nama-" . $row["id_anak"] . "' name='nama' value='" . $row["nama_anak"] . "' required>
-                            </div>
-                            <div class='form-group'>
-                                <label for='jenis-kelamin-" . $row["id_anak"] . "'>Jenis Kelamin</label>
-                                <select id='jenis-kelamin-" . $row["id_anak"] . "' name='jenis-kelamin' class='form-control' required>
-                                    <option value='Laki-laki' " . ($row["jenis_kelamin"] == 'Laki-laki' ? 'selected' : '') . ">Laki-laki</option>
-                                    <option value='Perempuan' " . ($row["jenis_kelamin"] == 'Perempuan' ? 'selected' : '') . ">Perempuan</option>
-                                </select>
-                            </div>
-                            <div class='form-group'>
-                                <label for='tanggal-lahir-" . $row["id_anak"] . "'>Tanggal Lahir</label>
-                                <input type='date' class='form-control' id='tanggal-lahir-" . $row["id_anak"] . "' name='tanggal-lahir' value='" . $row["tanggal_lahir_anak"] . "' required>
-                            </div>
-                            <div class='form-group'>
-                                <label for='bb-lahir-" . $row["id_anak"] . "'>Berat Badan</label>
-                                <input type='number' class='form-control' id='bb-lahir-" . $row["id_anak"] . "' name='bb-lahir' value='" . $row["bb_lahir"] . "' required>
-                            </div>
-                            <div class='form-group'>
-                                <label for='tb-lahir-" . $row["id_anak"] . "'>Tinggi Badan</label>
-                                <input type='number' class='form-control' id='tb-lahir-" . $row["id_anak"] . "' name='tb-lahir' value='" . $row["tb_lahir"] . "' required>
-                            </div>
-                            <div class='form-group'>
-                                <label for='alamat-" . $row["id_anak"] . "'>Alamat</label>
-                                <input type='text' class='form-control' id='alamat-" . $row["id_anak"] . "' name='alamat' value='" . $row["alamat"] . "' required>
-                            </div>
-                        </div>
-                        <div class='modal-footer'>
-                            <input type='button' class='btn btn-default' data-dismiss='modal' value='Batal'>
-                            <input type='submit' class='btn btn-info' value='Simpan' name='update'>
-                        </div>
-                        </form>
-                    </div>
-                </div>
-            </div>";
+                                            <div class='modal-dialog'>
+                                                <div class='modal-content'>
+                                                    <form id='edit-anak-form-" . $row["id_anak"] . "' action='editAnak.php' method='POST' onsubmit='return validateFormEdit(" . $row["id_anak"] . ")'>
+                                                        <div class='modal-header'>
+                                                            <h4 class='modal-title'>Edit Data Balita</h4>
+                                                            <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+                                                        </div>
+                                                        <div class='modal-body'>
+                                                            <div class='form-group'>
+                                                                <label for='nik-" . $row["id_anak"] . "'>NIK Balita</label>
+                                                                <input type='number' class='form-control' id='nik-" . $row["id_anak"] . "' name='nik' value='" . $row["id_anak"] . "' readonly>
+                                                                <small id='nikWarning-" . $row["id_anak"] . "' class='text-danger'></small>
+                                                            </div>
+                                                            <div class='form-group'>
+                                                                <label for='nama-" . $row["id_anak"] . "'>Nama Balita</label>
+                                                                <input type='text' class='form-control' id='nama-" . $row["id_anak"] . "' name='nama' value='" . $row["nama_anak"] . "' required>
+                                                            </div>
+                                                            <div class='form-group'>
+                                                                <label for='jenis-kelamin-" . $row["id_anak"] . "'>Jenis Kelamin</label>
+                                                                <select id='jenis-kelamin-" . $row["id_anak"] . "' name='jenis-kelamin' class='form-control' required>
+                                                                    <option value='Laki-laki' " . ($row["jenis_kelamin"] == 'Laki-laki' ? 'selected' : '') . ">Laki-laki</option>
+                                                                    <option value='Perempuan' " . ($row["jenis_kelamin"] == 'Perempuan' ? 'selected' : '') . ">Perempuan</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class='form-group'>
+                                                                <label for='tanggal-lahir-" . $row["id_anak"] . "'>Tanggal Lahir</label>
+                                                                <input type='date' class='form-control' id='tanggal-lahir-" . $row["id_anak"] . "' name='tanggal-lahir' value='" . $row["tanggal_lahir_anak"] . "' required>
+                                                            </div>
+                                                            <div class='form-group'>
+                                                                <label for='bb-lahir-" . $row["id_anak"] . "'>Berat Badan</label>
+                                                                <input type='number' class='form-control' id='bb-lahir-" . $row["id_anak"] . "' name='bb-lahir' value='" . $row["bb_lahir"] . "' required>
+                                                            </div>
+                                                            <div class='form-group'>
+                                                                <label for='tb-lahir-" . $row["id_anak"] . "'>Tinggi Badan</label>
+                                                                <input type='number' class='form-control' id='tb-lahir-" . $row["id_anak"] . "' name='tb-lahir' value='" . $row["tb_lahir"] . "' required>
+                                                            </div>
+                                                            <div class='form-group'>
+                                                                <label for='alamat-" . $row["id_anak"] . "'>Alamat</label>
+                                                                <input type='text' class='form-control' id='alamat-" . $row["id_anak"] . "' name='alamat' value='" . $row["alamat"] . "' required>
+                                                            </div>
+                                                        </div>
+                                                        <div class='modal-footer'>
+                                                            <input type='button' class='btn btn-default' data-dismiss='modal' value='Batal'>
+                                                            <input type='submit' id='submitButton-" . $row["id_anak"] . "' class='btn btn-info' value='Simpan' name='update' style='background-color: green;'>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>";
+
+                                            echo "<script>
+                                            function validateFormEdit(id) {
+                                                var bbInput = document.getElementById('bb-lahir-' + id);
+                                                var tbInput = document.getElementById('tb-lahir-' + id);                                
+                                        
+                                                // Check Berat Badan
+                                                var minBerat = 2.7;
+                                                if (bbInput.value < minBerat) {
+                                                    alert('Berat Badan minimal harus 2.7 kg.');
+                                                    return false; // Prevent form submission
+                                                }
+                                        
+                                                // Check Tinggi Badan
+                                                var minTinggi = 50;
+                                                if (tbInput.value < minTinggi) {
+                                                    alert('Tinggi Badan minimal harus 50 cm.');
+                                                    return false; // Prevent form submission
+                                                }
+                                        
+                                                return true; // Allow form submission
+                                            }
+                                        </script>";
                                         }
                                         mysqli_free_result($result);
                                     } else {
@@ -171,27 +195,72 @@
                             <div id="addEmployeeModal" class="modal fade">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
-                                        <form id="tambah-anak-form" method="post" action="tambahAnak.php">
+                                        <form id="tambah-anak-form" method="post" action="tambahAnak.php" onsubmit="return validateForm()">
                                             <div class="modal-header">
                                                 <h4 class="modal-title">Tambah Data Balita</h4>
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                             </div>
                                             <div class="modal-body">
                                                 <div class="form-group">
-                                                    <label for="nik">NIK Balita </label>
-                                                    <input type="number" id="nik" name="nik" class="form-control" required style="border-color: black; border :1px solid black;">
+                                                    <label for="nik">NIK Balita</label>
+                                                    <input type="number" id="nik" name="nik" class="form-control" required style="border-color: black; border: 1px solid black;" oninput="validateNikLength(this)">
+                                                    <small id="nikWarning" class="text-danger"></small>
                                                 </div>
+                                                <script>
+                                                    function validateNikLength(input) {
+                                                        var minLength = 16;
+                                                        var warningMessage = document.getElementById("nikWarning");
+                                                        var submitButton = document.getElementById("submitButton");
+
+                                                        // if (input.value.length < minLength) {
+                                                        //     warningMessage.textContent = "Kolom harus berisi 16 karakter.";
+                                                        //     submitButton.disabled = true; // Disable the submit button
+                                                        // } else {
+                                                        //     warningMessage.textContent = "";
+                                                        //     submitButton.disabled = false; // Enable the submit button
+                                                        // }
+                                                    }
+
+                                                    function validateForm() {
+                                                        var nikInput = document.getElementById("nik");
+                                                        var bbInput = document.getElementById("bb-lahir");
+                                                        var tbInput = document.getElementById("tb-lahir");
+
+                                                        // Check NIK length
+                                                        if (nikInput.value.length < 16) {
+                                                            alert("NIK harus berisi 16 karakter.");
+                                                            return false; // Prevent form submission
+                                                        }
+
+                                                        // Check Berat Badan
+                                                        var minBerat = 2.7;
+                                                        if (bbInput.value < minBerat) {
+                                                            alert("Berat Badan minimal harus 2.7 kg.");
+                                                            return false; // Prevent form submission
+                                                        }
+
+                                                        // Check Tinggi Badan
+                                                        var minTinggi = 50;
+                                                        if (tbInput.value < minTinggi) {
+                                                            alert("Tinggi Badan minimal harus 50 cm.");
+                                                            return false; // Prevent form submission
+                                                        }
+
+                                                        return true; // Allow form submission
+                                                    }
+                                                </script>
                                                 <div class="form-group">
                                                     <label for="nama">Nama Balita</label>
                                                     <input type="text" id="nama" name="nama" class="form-control" required style="border-color: black; border :1px solid black;">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="jenis-kelamin">Jenis Kelamin</label>
-                                                    <select id="jenis-kelamin" name="jenis-kelamin" class="form-control" required style="border-color: black; border :1px solid black;">
+                                                    <select id="jenis-kelamin" name="jenis-kelamin" class="form-control" required style="border: 1px solid black;">
                                                         <option value="laki-laki">Laki-laki</option>
                                                         <option value="perempuan">Perempuan</option>
                                                     </select>
                                                 </div>
+
                                                 <div class="form-group">
                                                     <label for="tanggal-lahir">Tanggal Lahir</label>
                                                     <input type="date" id="tanggal-lahir" name="tanggal-lahir" class="form-control" required style="border-color: black; border :1px solid black;">
@@ -229,14 +298,16 @@
 
                                             </div>
                                             <div class="modal-footer">
-                                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Batal" style="background-color: red; color: white;">
-                                                <input type="submit" class="btn btn-success" value="Tambah" style="background-color: green;">
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+                                                <button type="submit" id="submitButton" class="btn btn-success">Tambah</button>
                                             </div>
+
 
                                         </form>
                                     </div>
                                 </div>
                             </div>
+
                             <!-- Delete Modal HTML -->
                             <div id="deleteEmployeeModal" class="modal fade">
                                 <div class="modal-dialog">

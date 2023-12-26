@@ -176,12 +176,76 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="berat_badan">Berat Badan</label>
-                                                    <input type="number" step="0.01" id="berat_badan" name="berat_badan" class="form-control" required style="border-color: black; border :1px solid black;">
+                                                    <input type="number" step="0.01" id="berat_badan" name="berat_badan" class="form-control" required style="border-color: black; border: 1px solid black;" oninput="validateBeratBadan(this)">
+                                                    <small id="beratBadanWarning" class="text-danger"></small>
                                                 </div>
+
+                                                <script>
+                                                    function validateBeratBadan(input) {
+                                                        var minWeight = 2.7;
+                                                        var warningMessage = document.getElementById("beratBadanWarning");
+                                                        var submitButton = document.getElementById("submitButton");
+
+                                                        if (input.value < minWeight) {
+                                                            warningMessage.textContent = "Berat badan minimal harus 2.7 kg.";
+                                                            // Uncomment the following line if you have a submit button with the id "submitButton"
+                                                            // submitButton.disabled = true; // Disable the submit button
+                                                        } else {
+                                                            warningMessage.textContent = "";
+                                                            // Uncomment the following line if you have a submit button with the id "submitButton"
+                                                            // submitButton.disabled = false; // Enable the submit button
+                                                        }
+                                                    }
+
+                                                    // If you have a submit button, you can use the following function
+                                                    function validateForm() {
+                                                        var beratBadanInput = document.getElementById("berat_badan");
+
+                                                        // Check minimum berat badan
+                                                        if (beratBadanInput.value < 2.7) {
+                                                            alert("Berat badan minimal harus 2.7 kg.");
+                                                            return false; // Prevent form submission
+                                                        }
+                                                        return true; // Allow form submission
+                                                    }
+                                                </script>
+
                                                 <div class="form-group">
                                                     <label for="tinggi_badan">Tinggi Badan</label>
-                                                    <input type="number" step="0.01" id="tinggi_badan" name="tinggi_badan" class="form-control" required style="border-color: black; border :1px solid black;">
+                                                    <input type="number" step="0.01" id="tinggi_badan" name="tinggi_badan" class="form-control" required style="border-color: black; border: 1px solid black;" oninput="validateTinggiBadan(this)">
+                                                    <small id="tinggiBadanWarning" class="text-danger"></small>
                                                 </div>
+
+                                                <script>
+                                                    function validateTinggiBadan(input) {
+                                                        var minHeight = 50;
+                                                        var warningMessage = document.getElementById("tinggiBadanWarning");
+                                                        var submitButton = document.getElementById("submitButton");
+
+                                                        if (input.value < minHeight) {
+                                                            warningMessage.textContent = "Tinggi badan minimal harus 50 cm.";
+                                                            // Uncomment the following line if you have a submit button with the id "submitButton"
+                                                            // submitButton.disabled = true; // Disable the submit button
+                                                        } else {
+                                                            warningMessage.textContent = "";
+                                                            // Uncomment the following line if you have a submit button with the id "submitButton"
+                                                            // submitButton.disabled = false; // Enable the submit button
+                                                        }
+                                                    }
+
+                                                    // If you have a submit button, you can use the following function
+                                                    function validateForm() {
+                                                        var tinggiBadanInput = document.getElementById("tinggi_badan");
+
+                                                        // Check minimum tinggi badan
+                                                        if (tinggiBadanInput.value < 50) {
+                                                            alert("Tinggi badan minimal harus 50 cm.");
+                                                            return false; // Prevent form submission
+                                                        }
+                                                        return true; // Allow form submission
+                                                    }
+                                                </script>
+
                                             </div>
                                             <div class="modal-footer">
                                                 <input type="button" class="btn btn-default" data-dismiss="modal" value="Batal" style="background-color: red; color: white;">

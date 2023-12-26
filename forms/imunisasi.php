@@ -95,38 +95,76 @@
             </th>";
                                             echo "</tr>";
                                             echo "<div id='editImunisasiModal-" . $row["id_imunisasi"] . "' class='modal fade'>
-              <div class='modal-dialog'>
-                <div class='modal-content'>
-                  <form id='edit-imunisasi-form-" . $row["id_imunisasi"] . "' action='editImunisasi.php' method='POST'>
-                    <div class='modal-header'>
-                      <h4 class='modal-title'>Edit Data Imunisasi</h4>
-                      <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
-                    </div>
-                    <div class='modal-body'>
-                      <div class='form-group'>
-                      <input type='hidden' name='id_imunisasi' value='" . $row["id_imunisasi"] . "'>
-                        <label for='id_anak-" . $row["id_imunisasi"] . "'>Pilih Anak</label>
-                        <select id='id_anak-" . $row["id_imunisasi"] . "' name='id_anak' class='form-control' required>
-                            <option value='" . $row['id_anak'] . "'>" . $row['nama_anak'] . "</option>
-                        </select>
-                      </div>
-                      <div class='form-group'>
-                        <label for='tgl_imunisasi-" . $row["id_imunisasi"] . "'>Tanggal Imunisasi</label>
-                        <input type='date' class='form-control' id='tgl_imunisasi-" . $row["id_imunisasi"] . "' name='tgl_imunisasi' value='" . $row["tanggal_imunisasi"] . "' required>
-                      </div>
-                      <div class='form-group'>
-                        <label for='jenis_imunisasi-" . $row["id_imunisasi"] . "'>Jenis Imunisasi</label>
-                        <input type='text' class='form-control' id='jenis_imunisasi-" . $row["id_imunisasi"] . "' name='jenis_imunisasi' value='" . $row["jenis_imunisasi"] . "' required>
-                      </div>
-                    </div>
-                    <div class='modal-footer'>
-                      <input type='button' class='btn btn-default' data-dismiss='modal' value='Batal'>
-                      <input type='submit' class='btn btn-info' value='Simpan' name='update'>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>";
+                                            <div class='modal-dialog'>
+                                                <div class='modal-content'>
+                                                    <form id='edit-imunisasi-form-" . $row["id_imunisasi"] . "' action='editImunisasi.php' method='POST'>
+                                                        <div class='modal-header'>
+                                                            <h4 class='modal-title'>Edit Data Imunisasi</h4>
+                                                            <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+                                                        </div>
+                                                        <div class='modal-body'>
+                                                            <div class='form-group'>
+                                                                <input type='hidden' name='id_imunisasi' value='" . $row["id_imunisasi"] . "'>
+                                                                <label for='id_anak-" . $row["id_imunisasi"] . "'>Pilih Anak</label>
+                                                                <select id='id_anak-" . $row["id_imunisasi"] . "' name='id_anak' class='form-control' readonly>
+                                                                    <option value='" . $row['id_anak'] . "'>" . $row['nama_anak'] . "</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class='form-group'>
+                                                                <label for='tgl_imunisasi-" . $row["id_imunisasi"] . "'>Tanggal Imunisasi</label>
+                                                                <input type='date' class='form-control' id='tgl_imunisasi-" . $row["id_imunisasi"] . "' name='tgl_imunisasi' value='" . $row["tanggal_imunisasi"] . "' required>
+                                                            </div>
+                                                            <div class='form-group'>
+                                                                <label for='jenis_imunisasi' style='font-size: 15px;'>Jenis Imunisasi</label>
+                                                                <select id='jenis_imunisasi' name='jenis_imunisasi' style='font-size: 13px;' class='form-control' required style='border-color: black; border: 1px solid black;'>
+                                                                    <!-- Options will be dynamically added here using JavaScript -->
+                                                                </select>
+                                                            </div>
+                                                            <script>
+                                                                // Get the select element
+                                                                var jenisImunisasiSelect = document.getElementById('jenis_imunisasi');
+                                        
+                                                                // Array of options
+                                                                var options = [
+                                                                    'BCG (0 bulan)',
+                                                                    'Hepatitis B 1 (0 bulan)',
+                                                                    'Hepatitis B 2 (1 bulan)',
+                                                                    'Polio 1 (2 bulan)',
+                                                                    'DPT-HB-Hib 1 (2 bulan)',
+                                                                    'PCV 1 (2 bulan)',
+                                                                    'Rotavirus 1 (2 bulan)',
+                                                                    'Polio 2 (4 bulan)',
+                                                                    'DPT-HB-Hib 2 (4 bulan)',
+                                                                    'PCV 2 (4 bulan)',
+                                                                    'Rotavirus 2 (4 bulan)',
+                                                                    'Hepatitis B 3 (6 bulan)',
+                                                                    'Polio 3 (6 bulan)',
+                                                                    'DPT-HB-Hib 3 (6 bulan)',
+                                                                    'PCV 3 (6 bulan)',
+                                                                    'Campak (9 bulan)',
+                                                                    'Gondok (9 bulan)',
+                                                                    'Rubella (9 bulan)'
+                                                                ];
+                                        
+                                                                // Populate the select element with options
+                                                                for (var i = 0; i < options.length; i++) {
+                                                                    var option = document.createElement('option');
+                                                                    option.text = options[i];
+                                                                    jenisImunisasiSelect.add(option);
+                                                                }
+                                        
+                                                                // Set the selected option based on the current value in PHP
+                                                                jenisImunisasiSelect.value = '" . $row['jenis_imunisasi'] . "';
+                                                            </script>
+                                                        </div>
+                                                        <div class='modal-footer'>
+                                                            <input type='button' class='btn btn-default' data-dismiss='modal' value='Batal'>
+                                                            <input type='submit' class='btn btn-info' value='Simpan' name='update'>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>";
                                         }
                                     } else {
                                         echo "Tidak ada data imunisasi.";
@@ -166,14 +204,15 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="jenis_imunisasi" style="font-size: 15px;">Jenis Imunisasi</label>
-                                                    <select id="jenis_imunisasi" name="jenis_imunisasi" style="font-size: 13px;" class="form-control" required style="border-color: black; border :1px solid black;">
+                                                    <select id="jenis_imunisasi" name="jenis_imunisasi" style="font-size: 13px; border: 1px solid black;" class="form-control" required>
                                                         <!-- Options will be dynamically added here using JavaScript -->
                                                     </select>
                                                 </div>
 
+
                                                 <script>
                                                     // Get the select element
-                                                    var jenisImunisasiSelect = document.getElementById("jenis_imunisasi") ;
+                                                    var jenisImunisasiSelect = document.getElementById("jenis_imunisasi");
 
                                                     // Array of options
                                                     var options = [

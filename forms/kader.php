@@ -55,7 +55,7 @@
                             <table id="datatablesSimple" class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>ID Kader</th>
+                                        <th>Nik Kader</th>
                                         <th>Nama Kader</th>
                                         <th>Tanggal Lahir</th>
                                         <th>Alamat</th>
@@ -68,7 +68,7 @@
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th>ID Kader</th>
+                                        <th>Nik Kader</th>
                                         <th>Nama Kader</th>
                                         <th>Tanggal Lahir</th>
                                         <th>Alamat</th>
@@ -126,8 +126,8 @@
                               </div>
                               <div class='modal-body'>
                               <div class='form-group'>
-                              <label for='nik-" . $row["id_kader"] . "'>ID Kader</label>
-                              <input type='text' class='form-control' id='nik-" . $row["id_kader"] . "' name='nik' value='" . $row["id_kader"] . "' required>
+                              <label for='nik-" . $row["id_kader"] . "'>Nika Kader</label>
+                              <input type='text' class='form-control' id='nik-" . $row["id_kader"] . "' name='nik' value='" . $row["id_kader"] . "' readonly>
                           </div>                          
                                   <div class='form-group'>
                                       <label for='nama-" . $row["id_kader"] . "'>Nama Kader</label>
@@ -182,9 +182,39 @@
                                             </div>
                                             <div class="modal-body">
                                                 <div class="form-group">
-                                                    <label for="nik">ID Kader</label>
-                                                    <input type="text" id="nik" name="nik" class="form-control" required style="border-color: black; border :1px solid black;">
+                                                    <label for="nik">NIK kader</label>
+                                                    <input type="number" id="nik" name="nik" class="form-control" required style="border-color: black; border: 1px solid black;" oninput="validateNikLength(this)">
+                                                    <small id="nikWarning" class="text-danger"></small>
                                                 </div>
+
+                                                <script>
+                                                    function validateNikLength(input) {
+                                                        var minLength = 16;
+                                                        var warningMessage = document.getElementById("nikWarning");
+                                                        var submitButton = document.getElementById("submitButton");
+
+                                                        if (input.value.length < minLength) {
+                                                            warningMessage.textContent = "Nik harus berisi 16 karakter.";
+                                                        } else {
+                                                            warningMessage.textContent = "";
+                                                            // Enable the submit button
+                                                            // You need to uncomment the following line if you have a submit button with the id "submitButton"
+                                                            // submitButton.disabled = false;
+                                                        }
+                                                    }
+
+                                                    function validateForm() {
+                                                        var nikInput = document.getElementById("nik");
+
+                                                        // Check NIK length
+                                                        if (nikInput.value.length !== 16) {
+                                                            alert("NIK harus berisi 16 karakter.");
+                                                            return false; // Prevent form submission
+                                                        }
+                                                        return true; // Allow form submission
+                                                    }
+                                                </script>
+
                                                 <div class="form-group">
                                                     <label for="nama">Nama Kader</label>
                                                     <input type="text" id="nama_kader" name="nama_kader" class="form-control" required style="border-color: black; border :1px solid black;">
