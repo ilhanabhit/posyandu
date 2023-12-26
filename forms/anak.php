@@ -255,12 +255,11 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="jenis-kelamin">Jenis Kelamin</label>
-                                                    <select id="jenis-kelamin" name="jenis-kelamin" class="form-control" required style="border: 1px solid black;">
+                                                    <select id="jenis-kelamin" name="jenis-kelamin" class="form-control" required style="border-color: black; border :1px solid black;">
                                                         <option value="laki-laki">Laki-laki</option>
                                                         <option value="perempuan">Perempuan</option>
                                                     </select>
                                                 </div>
-
                                                 <div class="form-group">
                                                     <label for="tanggal-lahir">Tanggal Lahir</label>
                                                     <input type="date" id="tanggal-lahir" name="tanggal-lahir" class="form-control" required style="border-color: black; border :1px solid black;">
