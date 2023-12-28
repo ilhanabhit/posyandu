@@ -181,38 +181,31 @@
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                             </div>
                                             <div class="modal-body">
-                                                <div class="form-group">
-                                                    <label for="nik">NIK kader</label>
-                                                    <input type="number" id="nik" name="nik" class="form-control" required style="border-color: black; border: 1px solid black;" oninput="validateNikLength(this)">
-                                                    <small id="nikWarning" class="text-danger"></small>
+                                            <div class="form-group">
+                                                    <label for="nik">NIK Kader</label>
+                                                    <input type="number" id="nik" name="nik" class="form-control" required maxlength="16" oninput="validateNIK(this)" style="border-color: black; border: 1px solid black;">
+                                                    <small id="nikError" style="color: red;"></small>
                                                 </div>
 
                                                 <script>
-                                                    function validateNikLength(input) {
-                                                        var minLength = 16;
-                                                        var warningMessage = document.getElementById("nikWarning");
-                                                        var submitButton = document.getElementById("submitButton");
+                                                    function validateNIK(input) {
+                                                        var nik = input.value;
+                                                        var nikError = document.getElementById("nikError");
 
-                                                        if (input.value.length < minLength) {
-                                                            warningMessage.textContent = "Nik harus berisi 16 karakter.";
+                                                        // Check if the NIK has exactly 16 characters
+                                                        if (nik.length !== 16) {
+                                                            nikError.textContent = "NIK Kader harus terdiri dari 16 karakter.";
+                                                            input.setCustomValidity("Invalid");
                                                         } else {
-                                                            warningMessage.textContent = "";
-                                                            // Enable the submit button
-                                                            // You need to uncomment the following line if you have a submit button with the id "submitButton"
-                                                            // submitButton.disabled = false;
+                                                            nikError.textContent = ""; // Clear the error message
+                                                            input.setCustomValidity(""); // Set validity back to default
                                                         }
                                                     }
 
-                                                    function validateForm() {
-                                                        var nikInput = document.getElementById("nik");
-
-                                                        // Check NIK length
-                                                        if (nikInput.value.length !== 16) {
-                                                            alert("NIK harus berisi 16 karakter.");
-                                                            return false; // Prevent form submission
-                                                        }
-                                                        return true; // Allow form submission
-                                                    }
+                                                    // Add an event listener for the input event to trigger validation
+                                                    document.getElementById("nik").addEventListener("input", function() {
+                                                        validateNIK(this);
+                                                    });
                                                 </script>
 
                                                 <div class="form-group">
