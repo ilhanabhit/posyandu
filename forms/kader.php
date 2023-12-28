@@ -55,7 +55,7 @@
                             <table id="datatablesSimple" class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Nik Kader</th>
+                                        <th>ID Kader</th>
                                         <th>Nama Kader</th>
                                         <th>Tanggal Lahir</th>
                                         <th>Alamat</th>
@@ -68,7 +68,7 @@
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th>Nik Kader</th>
+                                        <th>ID Kader</th>
                                         <th>Nama Kader</th>
                                         <th>Tanggal Lahir</th>
                                         <th>Alamat</th>
@@ -117,51 +117,63 @@
                                             echo '</tr>';
                                             // Tambahkan modal edit untuk setiap baris data
                                             echo "<div id='editEmployeeModal-" . $row["id_kader"] . "' class='modal fade'>
-                              <div class='modal-dialog'>
-                                <div class='modal-content'>
-                                  <form id='edit-kader-form-" . $row["id_kader"] . "' action='editKader.php' method='POST'>
-                                  <div class='modal-header'>
-                                  <h4 class='modal-title'>Edit Data Kader Posyandu</h4>
-                                  <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
-                              </div>
-                              <div class='modal-body'>
-                              <div class='form-group'>
-                              <label for='nik-" . $row["id_kader"] . "'>Nika Kader</label>
-                              <input type='text' class='form-control' id='nik-" . $row["id_kader"] . "' name='nik' value='" . $row["id_kader"] . "' readonly>
-                          </div>                          
-                                  <div class='form-group'>
-                                      <label for='nama-" . $row["id_kader"] . "'>Nama Kader</label>
-                                      <input type='text' class='form-control' id='nama' name='nama' value='" . $row["nama_kader"] . "' required>
-                                  </div>
-                                  <div class='form-group'>
-                                      <label for='tanggal-lahir-" . $row["id_kader"] . "'>Tanggal Lahir</label>
-                                      <input type='date' class='form-control' id='tanggal-lahir-" . $row["id_kader"] . "' name='tanggal-lahir' value='" . $row["tgl_lahir"] . "' required>
-                                  </div>
-                                  <div class='form-group'>
-                                      <label for='alamat-" . $row["id_kader"] . "'>Alamat</label>
-                                      <input type='text' class='form-control' id='alamat-" . $row["id_kader"] . "' name='alamat' value='" . $row["alamat"] . "' required>
-                                  </div>
-                                  <div class='form-group'>
-                                      <label for='jabatan-" . $row["id_kader"] . "'>Jabatan</label>
-                                      <input type='text' class='form-control' id='jabatan-" . $row["id_kader"] . "' name='jabatan' value='" . $row["jabatan"] . "' required>
-                                  </div>
-                                  <div class='form-group'>
-                                      <label for='tugas-pokok-" . $row["id_kader"] . "'>Tugas Pokok</label>
-                                      <input type='text' class='form-control' id='tugas-pokok-" . $row["id_kader"] . "' name='tugas-pokok' value='" . $row["tugas_pokok"] . "' required>
-                                  </div>
-                                  <div class='form-group'>
-                                      <label for='no_telp-" . $row["id_kader"] . "'>No.Telepon</label>
-                                      <input type='text' class='form-control' id='no_telp' name='no_telp' value='" . $row["no_telp"] . "' required>
-                                  </div>
-                              </div>
-                              <div class='modal-footer'>
-                                  <input type='button' class='btn btn-default' data-dismiss='modal' value='Batal'>
-                                  <input type='submit' class='btn btn-info' value='Simpan' name='update'>
-                              </div>
-                              </form>
-                              </div>
-                              </div>
-                              </div>";
+        <div class='modal-dialog'>
+            <div class='modal-content'>
+                <form id='edit-kader-form-" . $row["id_kader"] . "' action='editKader.php' method='POST' enctype='multipart/form-data'>
+                    <div class='modal-header'>
+                        <h4 class='modal-title'>Edit Data Kader Posyandu</h4>
+                        <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+                    </div>
+                    <div class='modal-body'>
+                        <div class='form-group'>
+                            <label for='nik-" . $row["id_kader"] . "'>ID Kader</label>
+                            <input type='text' class='form-control' id='nik-" . $row["id_kader"] . "' name='nik' value='" . $row["id_kader"] . "' readonly>
+                        </div>
+                        <div class='form-group'>
+                            <label for='nama-" . $row["id_kader"] . "'>Nama Kader</label>
+                            <input type='text' class='form-control' id='nama' name='nama' value='" . $row["nama_kader"] . "' required>
+                        </div>
+                        <div class='form-group'>
+                            <label for='tanggal-lahir-" . $row["id_kader"] . "'>Tanggal Lahir</label>
+                            <input type='date' class='form-control' id='tanggal-lahir-" . $row["id_kader"] . "' name='tanggal-lahir' value='" . $row["tgl_lahir"] . "' required>
+                        </div>
+                        <div class='form-group'>
+                            <label for='alamat-" . $row["id_kader"] . "'>Alamat</label>
+                            <input type='text' class='form-control' id='alamat-" . $row["id_kader"] . "' name='alamat' value='" . $row["alamat"] . "' required>
+                        </div>
+                        <div class='form-group'>
+                            <label for='jabatan-" . $row["id_kader"] . "'>Jabatan</label>
+                            <select id='jabatan-" . $row["id_kader"] . "' name='jabatan' class='form-control' required style='border-color: black; border: 1px solid black;'>
+                                <option value='' selected disabled>Pilih Jabatan</option>
+                                <option value='Ketua'" . ($row['jabatan'] == 'Ketua' ? ' selected' : '') . ">Ketua</option>
+                                <option value='Bendahara'" . ($row['jabatan'] == 'Bendahara' ? ' selected' : '') . ">Bendahara</option>
+                                <option value='Sekretaris'" . ($row['jabatan'] == 'Sekretaris' ? ' selected' : '') . ">Sekretaris</option>
+                                <option value='Anggota'" . ($row['jabatan'] == 'Anggota' ? ' selected' : '') . ">Anggota</option>
+                            </select>
+                        </div>
+                        <div class='form-group'>
+                            <label for='tugas-pokok-" . $row["id_kader"] . "'>Tugas Pokok</label>
+                            <input type='text' class='form-control' id='tugas-pokok-" . $row["id_kader"] . "' name='tugas-pokok' value='" . $row["tugas_pokok"] . "' required>
+                        </div>
+                        <div class='form-group'>
+                            <label for='no_telp-" . $row["id_kader"] . "'>No.Telepon</label>
+                            <input type='text' class='form-control' id='no_telp' name='no_telp' value='" . $row["no_telp"] . "' required>
+                        </div>
+                        <div class='form-group'>
+                            <label for='img_kader'>Gambar Lama</label><br>
+                            <img src='berkas/team/" . $row["img_kader"] . "' alt='Gambar Lama' style='max-width: 200px; max-height: 200px;'><br>
+                            <label for='gambar'>Upload Gambar Baru</label>
+                            <input type='file' class='form-control' id='img_kader' name='img_kader'>
+                        </div>
+                    </div>
+                    <div class='modal-footer'>
+                        <input type='button' class='btn btn-default' data-dismiss='modal' value='Batal'>
+                        <input type='submit' class='btn btn-info' value='Simpan' name='update'>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>";
                                         }
                                     } else {
                                         echo "Tidak ada data kader Posyandu.";
@@ -181,7 +193,7 @@
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                             </div>
                                             <div class="modal-body">
-                                            <div class="form-group">
+                                                <div class="form-group">
                                                     <label for="nik">NIK Kader</label>
                                                     <input type="number" id="nik" name="nik" class="form-control" required maxlength="16" oninput="validateNIK(this)" style="border-color: black; border: 1px solid black;">
                                                     <small id="nikError" style="color: red;"></small>
