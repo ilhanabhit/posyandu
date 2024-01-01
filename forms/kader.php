@@ -55,7 +55,7 @@
                             <table id="datatablesSimple" class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>ID Kader</th>
+                                        <th>Nik kader</th>
                                         <th>Nama Kader</th>
                                         <th>Tanggal Lahir</th>
                                         <th>Alamat</th>
@@ -68,7 +68,7 @@
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th>ID Kader</th>
+                                        <th>Nik kader</th>
                                         <th>Nama Kader</th>
                                         <th>Tanggal Lahir</th>
                                         <th>Alamat</th>
